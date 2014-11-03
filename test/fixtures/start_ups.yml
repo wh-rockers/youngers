@@ -1,0 +1,14 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  logo_url: MyString
+  name: MyString
+  likes_count: 1
+  desc: MyString
+
+two:
+  logo_url: MyString
+  name: MyString
+  likes_count: 1
+  desc: MyString

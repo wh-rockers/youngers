@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  username: jizilong
+  password: 
+  port: 5432
+  encoding: UTF8
+
+development:
+  <<: *default
+  database: startups_dev
+test:
+  <<: *default
+  database: startups_test
+production:
+  <<: *default
+  database: startups_dev

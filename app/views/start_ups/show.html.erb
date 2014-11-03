@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Logo url:</strong>
+  <%= @start_up.logo_url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @start_up.name %>
+</p>
+
+<p>
+  <strong>Likes count:</strong>
+  <%= @start_up.likes_count %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @start_up.desc %>
+</p>
+
+<%= link_to 'Edit', edit_start_up_path(@start_up) %> |
+<%= link_to 'Back', start_ups_path %>
