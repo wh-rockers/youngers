@@ -1,3 +1,63 @@
-// Place all the styles related to the StartUps controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.start-up-lists {
+  .start_up {
+    background: white;
+    border-radius: 4px;
+    border-bottom: 1px solid #eee;
+    margin-bottom:  10px;
+    .title {
+      .start-up-name {
+        font-size: 20px;
+        text-align: center;
+        padding-top: 20px;
+        padding-left: 30px;
+      }
+      .start-up-logo {
+        padding: 10px;
+        .start-up-logo-image {
+          max-height: 60px;
+        }
+      }
+    }
+    .desc {
+      padding: 20px;
+    }
+    .ups {
+      padding-right: 30px;
+      text-align: right;
+      .likes-count {
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      .thumb-icon {
+        font-size: 24px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.submit-start-up {
+  margin-top: 40px;
+  .submit-start-up-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .submit-start-up-link {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    .create-start-up {
+      color: #FF5722;
+      font-size: 16px;
+    }
+  }
+}
+@media (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) { 
+  .start-up {
+    border-bottom: none;
+  }
+  .submit-start-up-desc {
+    padding-left: 20%;
+  }
+}

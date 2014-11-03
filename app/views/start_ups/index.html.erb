@@ -1,3 +1,25 @@
-<div class="container">
-	
+<div class="start-up-lists">
+	<div class="row">
+		<% @start_ups.each do |start_up| %>
+			<div class="col-md-4">
+				<%= render 'start_up', start_up: start_up %>
+			</div>
+		<% end %>
+	</div>
+</div>
+<div class="submit-start-up panel panel-default">
+	<div class="panel-body">
+		<p class="submit-start-up-title">
+		他们有着相同的特点！
+		</p>
+		<ol class='submit-start-up-desc'>
+			<li>都在努力用新的方式去解决人民的问题， 改变人们生活或工作的方式</li>
+			<li>都在发展的初期， 小团队</li>
+			<li>都需要大家的鼓励和帮助</li>
+		</ol>
+		<div class="submit-start-up-link">
+			你的团队满足以上要求并且你支持这个我们这项活动， 欢迎您
+			<%= link_to '提交您的项目信息', '#', class: 'create-start-up' %>
+		</div>
+	</div>
 </div>

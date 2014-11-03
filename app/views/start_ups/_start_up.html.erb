@@ -1,0 +1,21 @@
+<div class="start_up">
+	<div class="row title">
+		<div class="col-xs-8 start-up-name">
+			<%= start_up.name %>
+		</div>
+		<div class="col-xs-2 start-up-logo">
+			<%= image_tag(start_up.logo_url, class: 'start-up-logo-image') %>
+		</div>
+	</div>
+	<div class="desc">
+		<%= start_up.desc %>
+	</div>
+	<div class="ups">
+		<span class="likes-count">
+			<%= start_up.likes_count %>
+		</span>
+		<span class="thumb-icon">
+			<i class="mdi-action-thumb-up"></i>
+		</span> 
+	</div>
+</div>

@@ -1,5 +1,5 @@
 if StartUp.count == 0
-	StateUp.create([
+	StartUp.create([
 		{ 
 			logo_url: 'http://www.encore-cav.com/home-theater/images/images2/logo_icon_large.png',
 			name: '恋爱笔记',
