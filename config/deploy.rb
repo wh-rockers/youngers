@@ -10,7 +10,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:apprentice1988/#{application}.git"
+set :repository, "git@github.com:apprentice1988/youngers.git"
 set :branch, "master"
 
 namespace :rails do
