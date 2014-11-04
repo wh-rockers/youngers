@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  resources :users
+
   root 'start_ups#index'
   resources :start_ups
 
