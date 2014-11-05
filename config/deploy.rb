@@ -4,7 +4,7 @@ set :default_environment, {
 }
 server "198.199.117.36", :web, :app, :db, primary: true
 
-set :application, "startups"
+set :application, "Startups"
 set :user, "jizilong"
 set :deploy_to, "/home/#{user}/#{application}"
 # set :keys, "/home/.ssh/id_rsa.pub"
