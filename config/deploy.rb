@@ -1,5 +1,7 @@
 require "bundler/capistrano"
-
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 server "198.199.117.36", :web, :app, :db, primary: true
 
 set :application, "startups"

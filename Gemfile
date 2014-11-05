@@ -33,3 +33,4 @@ group :production do
 end
 
 gem 'capistrano', '~>2.15'
+gem 'rvm-capistrano'
