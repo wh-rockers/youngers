@@ -29,7 +29,7 @@ end
  
 def run_interactively(command, server=nil)
   server ||= find_servers_for_task(current_task).first
-  exec %Q(ssh startups -t 'cd ~/startups/current && #{command}')
+  exec %Q(ssh startups -t 'cd ~/Startups/current && #{command}')
 end
 
 
@@ -43,7 +43,7 @@ namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
-      run "/etc/init.d/unicorn_#{application} #{command}"
+      run "sudo /etc/init.d/unicorn_#{application} #{command}"
     end
   end
 
