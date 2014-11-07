@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  resources :users
+  devise_for :users, 
+             :controllers => { :registrations => "custom_devise/registrations"}
+  resources :users do 
+    get :uptoken, on: :collection
+  end
 
   root 'start_ups#index'
   resources :start_ups

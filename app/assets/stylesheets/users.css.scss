@@ -1,3 +1,22 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.users-list {
+	.welcome-user {
+		text-align: center;
+		font-size: 14px;
+		a {
+			color: #4A90E2;
+			font-size: 18px;
+		}
+		span:last-child {
+			font-size: 18px;
+		}
+	}
+}
+
+.registration-table {
+	margin: 20px auto;
+	max-width: 600px;
+}
+
+.registration-avatar {
+	border-radius: 50%;
+}

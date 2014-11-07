@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    respond_with(@users)
   end
 
   def show
@@ -32,6 +31,12 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_with(@user)
+  end
+
+  def uptoken
+    put_policy = Qiniu::Auth::PutPolicy.new('startups')
+    token = Qiniu::Auth.generate_uptoken(put_policy)
+    render json: { uptoken: token }
   end
 
   private
