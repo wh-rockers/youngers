@@ -1,0 +1,37 @@
+.host{
+  width:50px;
+  height:20px;
+  padding-top:20px;
+}
+.loading{
+  width:10px;
+  height:10px;
+  background:#FFF;
+  border-radius:100%;
+  float:left;
+  margin-right:5px;
+}
+.loading-0{
+    -webkit-animation:bounce 1s infinite;
+    -webkit-animation-delay:.1s;
+    background:#009DC6
+  
+}
+.loading-1{
+    -webkit-animation:bounce 1s infinite;
+    -webkit-animation-delay:.3s;
+    background:#e8b440;
+}
+.loading-2{
+    -webkit-animation:bounce 1s infinite ease;
+    -webkit-animation-delay:.5s;
+    background:#b62327;
+}
+@-webkit-keyframes bounce {
+  0%, 100% {
+    opacity:1;
+  }
+  60% {
+    opacity:.0;
+  }
+}

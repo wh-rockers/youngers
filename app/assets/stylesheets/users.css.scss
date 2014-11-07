@@ -15,8 +15,33 @@
 .registration-table {
 	margin: 20px auto;
 	max-width: 600px;
+	#registration-user-avatar {
+		.actions {
+			text-align: center;
+			.avatar_section {
+				height: 100px;
+				width: 100px;
+				display: inline-block;
+				margin-right: 20px;
+				.avatar-pic {
+					border-radius: 50%;
+					border: 1px solid #eee;
+				}
+			}
+			#avatar_upload_button {
+				display: inline-block;
+				padding: 10px 20px;
+			}
+			.loading-avatar {
+				display: none;
+				width: 50px;
+			}
+		}
+		p {
+			text-align: center;
+			margin-top: 15px;
+			font-size: 16px;
+		}
+	}
 }
 
-.registration-avatar {
-	border-radius: 50%;
-}

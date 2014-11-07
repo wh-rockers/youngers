@@ -19,17 +19,22 @@ if $("#avatar_upload_button").length > 0
 
       # 文件添加进队列后,处理相关的事情
       BeforeUpload: (up, file) ->
-  
+        
       
       # 每个文件上传前,处理相关的事情
       UploadProgress: (up, file) ->
-  
+        $("#avatar_upload_button").hide()
+        $(".loading-avatar").css('display', 'inline-block')
       
       # 每个文件上传时,处理相关的事情
       FileUploaded: (up, file, info) ->
         name = $.parseJSON(info).key
         url = "http://startups.qiniudn.com/" + name
-        $("#registration-user-avatar").append "<img src='" + url + "?imageView2/1/w/100/h/100' class='registration-avatar'>"
+        $(".avatar_section").html "<img src='" + url + "?imageView2/1/w/100/h/100' class='avatar-pic'>"
+        $("#user_avatar").attr('value', url)
+        $(".loading-avatar").hide()
+        $("#avatar_upload_button").text('修改头像')
+        $("#avatar_upload_button").css('display', 'inline-block')
         return
       Error: (up, err, errTip) ->
   
