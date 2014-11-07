@@ -15,6 +15,6 @@ class CustomDevise::RegistrationsController < Devise::RegistrationsController
 	private
 
 	def permit_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation, :skill, :desc, :corp, :position)
+		params.require(:user).permit(:name, :email, :password, :password_confirmation, :skill, :desc, :corp, :position, :avatar, :industry_id)
 	end
 end
