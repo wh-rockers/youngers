@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email, :corp, :position, :skill, :industry_id, :avatar
   belongs_to :industry
 
+  DEV = ['zilongji@gmail.com']
+
   def pic
-  	"#{avatar}?imageView2/1/w/100/h/100"
+  	"#{avatar}?imageView2/1/w/70/h/70"
   end
 end

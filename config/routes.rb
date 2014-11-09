@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users, 
              :controllers => { :registrations => "custom_devise/registrations"}
   resources :users do 
@@ -8,6 +9,10 @@ Rails.application.routes.draw do
 
   root 'start_ups#index'
   resources :start_ups
+
+  get '/about' => 'static#about'
+  get '/activities' => 'static#activities'
+  get '/policies' => 'static#policies'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
