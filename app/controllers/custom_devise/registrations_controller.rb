@@ -6,6 +6,7 @@ class CustomDevise::RegistrationsController < Devise::RegistrationsController
 	def create
 		@registration = User.new(permit_params)
 		if @registration.save
+			sign_in(@registration)
 			redirect_to users_path
 		else
 			render :new
