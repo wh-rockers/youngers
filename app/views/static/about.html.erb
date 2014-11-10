@@ -1,25 +1,5 @@
 <div class="about-page">
-	<div class="well about-product">
-		<div>关于社区</div>	
-		<p>上班、下班、睡觉、吃饭……</p>
-		<p>偶尔仰望不太透气的天空，是否觉得生活有一丝憋闷？</p>
-		<p>眼睁睁看着青春随着年少时的梦想一同流走，却无力挽留？</p>
-		<p>想超越平凡的生活，却也难以将现状打破？</p>
-		<p>那么，如何改变才能让生活充满希望和热情？</p>
-		<p>也许，我不必背井离乡，洗心革面；</p>
-		<p>也许，你不必痛下决心，放弃所有。</p>
-		<br>
-		<p>Have a drink,</p>
-		<p>我们应该做的第一步是……</p>
-		<p>约个陌生人，谈谈彼此的工作、生活，你能发现这个世界不一样的精彩。</p>
-		<br>
-		<p>和同行聊聊，万一能找到志同道合的人，一拍即合呢？</p>
-		<p>和外行聊聊，万一不小心就发现新的机遇呢？</p>
-	</div>
-	<div class="well about-developers">
-		<p>社区代码贡献者</p>
-		<% User.where(email: User::DEV).each do |user| %>
-			<%= image_tag user.pic, class: 'about-user-pic' %>
-		<% end %>
-	</div>
+	<%= render 'product' %>
+	<%= render 'developers' %>
+	<%= render 'remarks' %>
 </div>

@@ -24,7 +24,7 @@ end
 if Industry.count == 0
 	Industry.create([
 		{ name: '计算机／互联网', abbr: 'IT' },
-		{ name: '公务员／事业单位', abbr: '政' },
+		{ name: '公务员／事业单位', abbr: '公' },
 		{ name: '投资', abbr: '投' },
 		{ name: '文化／广告／传媒', abbr: '文' },
 		{ name: '商业／服务业', abbr: '商' },

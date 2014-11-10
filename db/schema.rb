@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109032451) do
+ActiveRecord::Schema.define(version: 20141110155252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20141109032451) do
 
   add_index "invitations", ["from_user_id"], name: "index_invitations_on_from_user_id", using: :btree
   add_index "invitations", ["to_user_id"], name: "index_invitations_on_to_user_id", using: :btree
+
+  create_table "remarks", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id_id"
+    t.integer  "supporters", default: [], array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "score"
+  end
+
+  add_index "remarks", ["user_id_id"], name: "index_remarks_on_user_id_id", using: :btree
 
   create_table "start_ups", force: true do |t|
     t.string   "logo_url"

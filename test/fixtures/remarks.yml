@@ -1,0 +1,12 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  content: MyString
+  user_id: MyString
+  supporters: 1
+
+two:
+  content: MyString
+  user_id: MyString
+  supporters: 1

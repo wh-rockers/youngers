@@ -1,0 +1,6 @@
+<div class="well about-developers">
+	<p>社区代码贡献者</p>
+	<% User.where(email: User::DEV).each do |user| %>
+		<%= image_tag user.pic, class: 'about-user-pic' %>
+	<% end %>
+</div>
