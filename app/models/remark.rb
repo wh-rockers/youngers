@@ -1,6 +1,7 @@
 class Remark < ActiveRecord::Base
 	# 初始100， 每天减20， 一个赞5
-	before_validation :init_score
+	before_create :init_score
+	validates_presence_of :user_id, :content
 
 	private
 

@@ -1,3 +1,17 @@
-<div class="about-remarks well">
-	给我们提点建议吧！
+<div class="well">
+	<p class="remark-section-title">给我们提点建议吧</p>
+	<ul class="remark-list">
+		<% Remark.order('score desc').limit(20).each do |remark| %>
+			<li><%= remark.content %></li>
+		<% end %>
+	</ul>
+	<% if user_signed_in? %>
+		<%= simple_form_for Remark.new, remote: true do |f| %>
+			<%= f.input :content, label: false, input_html: { class: 'remark_content_input'} %>
+			<%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+			<%= f.submit '提交', disable_with: "提交", class: 'btn btn-primary remark-submit-button' %>
+		<% end %>
+	<% else %>
+		<p>登录后可以发表你的建议</p>
+	<% end %>
 </div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :remarks, only: [:create, :update]
   resources :invitations, only: [:create]
   devise_for :users, 
              :controllers => { :registrations => "custom_devise/registrations"}
