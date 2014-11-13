@@ -1,3 +1,18 @@
-// Place all the styles related to the invitations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.new_invitation {
+  #invitation_note {
+    width: 100%;
+  }
+}
+.ok-icon {
+  text-align: center;
+  padding-bottom: 20px;
+  i {
+    font-size: 100px;
+    color: #0F9D58;
+    line-height: 60px;
+  }
+  p {
+    color: #0F9D58;
+    font-size: 20px;
+  }
+}

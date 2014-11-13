@@ -1,4 +1,8 @@
 class InvitationsController < ApplicationController
+  def new
+    @invitation = Invitation.new(to_user_id: params[:to_user_id])
+  end
+
   def create
   	@invitation = Invitation.new(permit_params)
   	respond_to do |format|

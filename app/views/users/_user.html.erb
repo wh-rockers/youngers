@@ -30,14 +30,11 @@
 		</div>
 		<div class="col-xs-6 col-xs-offset-2">
 			<% if user_signed_in? && (current_user != user) %>
-				<%= form_for Invitation.new, remote: true, data: { confirm: "你确定要约#{user.name}吗？" } do |f| %>
-					<%= f.hidden_field :from_user_id, value: current_user.id %>
-					<%= f.hidden_field :to_user_id, value: user.id %>
-					<%= f.submit '约他喝咖啡', class: 'btn btn-info invitation-button' %>
-				<% end %>
+				<%= link_to '约他喝咖啡', new_invitation_path(to_user_id: user.id), remote: true, class: "btn btn-info invitation-button"  %>
 			<% else %>
 				<%= link_to '约他喝咖啡', '#', class: 'btn btn-info disabled' %>
 			<% end %>
 		</div>
 	</div>
 </div>
+

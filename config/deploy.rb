@@ -1,83 +1,96 @@
-require "bundler/capistrano"
-set :default_environment, {
-  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-}
-server "198.199.117.36", :web, :app, :db, primary: true
+set :application, 'startups'
+set :deploy_user, 'deploy'
 
-set :application, "Startups"
-set :user, "jizilong"
-set :deploy_to, "/home/#{user}/#{application}"
-# set :keys, "/home/.ssh/id_rsa.pub"
-set :deploy_via, :remote_cache
-set :use_sudo, false
+# setup repo details
+set :scm, :git
+set :repo_url, 'git@github.com:apprentice1988/youngers.git'
 
-set :scm, "git"
-set :repository, "git@github.com:apprentice1988/youngers.git"
-set :branch, "master"
+# setup rbenv.
+set :rbenv_type, :system
+set :rbenv_ruby, '2.1.2'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
-namespace :rails do
-  desc "Remote console"
-  task :console, :roles => :app do
-    run_interactively "bundle exec rails console #{rails_env}"
-  end
- 
-  desc "Remote dbconsole"
-  task :dbconsole, :roles => :app do
-    run_interactively "bundle exec rails dbconsole #{rails_env}"
-  end
-end
- 
-def run_interactively(command, server=nil)
-  server ||= find_servers_for_task(current_task).first
-  exec %Q(ssh startups -t 'cd ~/Startups/current && #{command}')
-end
+# how many old releases do we want to keep, not much
+set :keep_releases, 5
+
+# files we want symlinking to specific entries in shared
+set :linked_files, %w{config/database.yml config/secrets.yml}
+
+# dirs we want symlinking to shared
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+
+# what specs should be run before deployment is allowed to
+# continue, see lib/capistrano/tasks/run_tests.cap
+#set :tests, []
+
+# which config files should be copied by deploy:setup_config
+# see documentation in lib/capistrano/tasks/setup_config.cap
+# for details of operations
+set(:config_files, %w(
+  nginx.conf
+  database.example.yml
+  secrets.sample.yml
+  log_rotation
+  unicorn.rb
+  unicorn_init.sh
+))
+
+# which config files should be made executable after copying
+# by deploy:setup_config
+set(:executable_config_files, %w(
+  unicorn_init.sh
+))
 
 
+# files which need to be symlinked to other parts of the
+# filesystem. For example nginx virtualhosts, log rotation
+# init scripts etc. The full_app_name variable isn't
+# available at this point so we use a custom template {{}}
+# tag and then add it at run time.
+set(:symlinks, [
+  {
+    source: "nginx.conf",
+    link: "/etc/nginx/sites-enabled/{{full_app_name}}"
+  },
+  {
+    source: "unicorn_init.sh",
+    link: "/etc/init.d/unicorn_{{full_app_name}}"
+  },
+  {
+    source: "log_rotation",
+    link: "/etc/logrotate.d/{{full_app_name}}"
+  }
+])
 
-default_run_options[:pty] = true
-ssh_options[:forward_agent] = true
-
-after "deploy", "deploy:cleanup" # keep only the last 5 releases
+# this:
+# http://www.capistranorb.com/documentation/getting-started/flow/
+# is worth reading for a quick overview of what tasks are called
+# and when for `cap stage deploy`
 
 namespace :deploy do
-  %w[start stop restart].each do |command|
-    desc "#{command} unicorn server"
-    task command, roles: :app, except: {no_release: true} do
-      run "sudo /etc/init.d/unicorn_#{application} #{command}"
-    end
-  end
+  # make sure we're deploying what we think we're deploying
+  before :deploy, "deploy:check_revision"
+  # only allow a deploy with passing tests to deployed
+  #before :deploy, "deploy:run_tests"
+  # compile assets locally then rsync
+  #after 'deploy:symlink:shared', 'deploy:compile_assets_locally'
+  after :finishing, 'deploy:cleanup'
 
-  desc "tail production log files" 
-  task :tail_logs, :roles => :app do
-    trap("INT") { puts 'Interupted'; exit 0; }
-    run "tail -f #{shared_path}/log/production.log" do |channel, stream, data|
-      puts  # for an extra line break before the host name
-      puts "#{channel[:host]}: #{data}" 
-      break if stream == :err
-    end
-  end
+  # remove the default nginx configuration as it will tend
+  # to conflict with our configs.
+  before 'deploy:setup_config', 'nginx:remove_default_vhost'
 
-  task :setup_config, roles: :app do
-    sudo "ln -nfs /home/#{user}/#{application}/current/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-    sudo "ln -nfs /home/#{user}/#{application}/current/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
-    run "mkdir -p #{shared_path}/config"
-    put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
-    puts "Now edit the config files in #{shared_path}."
-  end
-  after "deploy:setup", "deploy:setup_config"
+  # reload nginx to it will pick up any modified vhosts from
+  # setup_config
+  after 'deploy:setup_config', 'nginx:reload'
 
-  task :symlink_config, roles: :app do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  end
-  after "deploy:finalize_update", "deploy:symlink_config"
+  # Restart monit so it will pick up any monit configurations
+  # we've added
+  #after 'deploy:setup_config', 'monit:restart'
 
-  desc "Make sure local git is in sync with remote."
-  task :check_revision, roles: :web do
-    unless `git rev-parse HEAD` == `git rev-parse origin/master`
-      puts "WARNING: HEAD is not the same as origin/master"
-      puts "Run `git push` to sync changes."
-      exit
-    end
-  end
-  before "deploy", "deploy:check_revision"
+  # As of Capistrano 3.1, the `deploy:restart` task is not called
+  # automatically.
+  after 'deploy:publishing', 'deploy:restart'
 end
+

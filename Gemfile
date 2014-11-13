@@ -14,10 +14,14 @@ gem 'bootstrap-sass'
 gem 'bootstrap-material-design'
 gem 'qiniu'
 gem 'whenever'
+gem 'sunzi'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'spring'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv', '~> 2.0'
 end
 
 group :development, :test do
@@ -33,5 +37,3 @@ group :production do
   gem 'rails_12factor'
   gem 'unicorn'
 end
-
-gem 'capistrano', '~>2.15'

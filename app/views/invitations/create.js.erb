@@ -1,2 +1,2 @@
-$("#user-<%= @invitation.to_user_id %>").find('.invitation-button').attr('class', 'btn btn-success invitation-button disabled');
-$("#user-<%= @invitation.to_user_id %>").find('.invitation-button').attr('value', '预约成功');
+$("#invitation-modal").find(".modal-body").html("<%= j render 'success' %>");
+setTimeout("$('#invitation-modal').modal('hide');", 2000);
