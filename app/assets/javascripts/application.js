@@ -17,4 +17,5 @@
 //= require turbolinks
 //= require plupload.min
 //= require qiniu.min
+//= require social-share-button
 //= require_tree .
