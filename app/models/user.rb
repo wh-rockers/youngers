@@ -30,7 +30,13 @@ class User < ActiveRecord::Base
 
   DEV = ['zilongji@gmail.com']
 
-  def pic
-  	"#{avatar}?imageView2/1/w/70/h/70"
+  def pic(version='normal')
+    case version
+    when 'small'
+      "#{avatar}?imageView2/1/w/60/h/60"
+    else
+      "#{avatar}?imageView2/1/w/70/h/70"
+    end
   end
+
 end

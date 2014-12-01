@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    respond_with(@user)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new

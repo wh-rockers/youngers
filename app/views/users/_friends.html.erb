@@ -1,0 +1,26 @@
+<div class="user-brief row">
+  <div class="user-avatar col-md-2">
+    <%= image_tag @user.pic('small'), class: 'avatar-on-top' %>
+  </div>
+  <div class="info col-md-10">
+    <div class='row'>
+      <p class="name col-md-3"><%= @user.name %></p>
+      <p class="career col-md-9">
+        <span><%= @user.corp %></span>
+        <span><%= @user.position %></span>
+      </p>
+    </div>
+    <div class="skill">
+      技能：<%= @user.skill %>
+    </div>
+    <div class="desc">
+      个人简介： <%= @user.desc %>
+    </div>
+  </div>
+</div>
+<div class="friends-list">
+  <% @user.friends.each do |friend| %>
+    <%= image_tag friend.pic('small'), class: 'friend-avatar' %>
+  <% end %>
+</div>
+<div class="remarks"></div>
