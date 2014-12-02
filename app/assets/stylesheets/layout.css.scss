@@ -7,13 +7,55 @@ body {
 		width: 100%;
 		height: 0;
 		padding-top: 29.072%;
+	}
+	.container {
+		padding: 0;
+	}
+}
+
+@media(max-width: 768px) {
+	.float-nav-image .social-buttons {
+		display: none;
+	}
+}
+
+@media(min-width: 768px) {
+	.float-nav-image {
 		.social-buttons {
 			margin-top: -100px;
 			float: right;
 			margin-right: 50px;
+			.weixin-share {
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				border-radius: 8px;
+				background-image: image-url('weixin.png');
+				background-size: 50px;
+			}
+			.popover {
+				.popover-title {
+					background-color: white;
+					color: black;
+				}
+				.popover-content {
+					background-color: white;
+					p {
+						color: black;
+					}
+					.share-tdcode {
+						background-image: image-url('weixin-share-tdcode.png');
+						background-size: 120px 120px;
+						width: 120px;
+						height: 120px;
+						margin-left: 40px;
+					}
+				}
+			}
+			.social-share-button {
+				display: inline-block;
+				vertical-align: top;
+			}
 		}
-	}
-	.container {
-		padding: 0;
 	}
 }
