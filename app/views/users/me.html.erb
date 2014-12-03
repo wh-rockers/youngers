@@ -1,0 +1,22 @@
+<div class="me">
+  <div class="avatar" id='me-avatar'>
+    <div class="avatar_section"><%= image_tag @user.pic, class: 'avatar-pic' %></div> 
+    <div id="avatar_upload_button" class='btn btn-primary'>更换头像</div>
+    <%= simple_form_for current_user, url: update_avatar_user_path(current_user), method: :put, remote: true do |f| %>
+      <%= f.hidden_field :avatar, value: current_user.avatar %>
+      <%= f.submit "保存改动", class: 'btn btn-warning' %>
+    <% end %>
+    <div class="loading-avatar">
+      <%= render 'layouts/loading' %>
+    </div>
+  </div>
+  <div class="profile">
+  </div>
+</div>
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body"></div>
+    </div>
+  </div>
+</div>

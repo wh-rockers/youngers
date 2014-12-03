@@ -1,3 +1,23 @@
+@mixin avatar-section {
+	.avatar_section {
+		height: 100px;
+		width: 100px;
+		display: inline-block;
+		margin-right: 20px;
+		.avatar-pic {
+			border-radius: 50%;
+			border: 1px solid #eee;
+		}
+	}
+	#avatar_upload_button {
+		display: inline-block;
+		padding: 10px 20px;
+	}
+	.loading-avatar {
+		display: none;
+		width: 50px;
+	}
+}
 .users-list {
 	.welcome-user {
 		text-align: center;
@@ -81,24 +101,7 @@
 	#registration-user-avatar {
 		.actions {
 			text-align: center;
-			.avatar_section {
-				height: 100px;
-				width: 100px;
-				display: inline-block;
-				margin-right: 20px;
-				.avatar-pic {
-					border-radius: 50%;
-					border: 1px solid #eee;
-				}
-			}
-			#avatar_upload_button {
-				display: inline-block;
-				padding: 10px 20px;
-			}
-			.loading-avatar {
-				display: none;
-				width: 50px;
-			}
+			@include avatar-section;
 		}
 		p {
 			text-align: center;
@@ -160,6 +163,16 @@
 					border-radius: 50%;
 				}
 			}
+		}
+	}
+}
+
+// me page
+.me {
+	.avatar {
+		@include avatar-section;
+		.edit_user {
+			display: none;
 		}
 	}
 }

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
              :controllers => { :registrations => "custom_devise/registrations"}
   resources :users do 
     get :uptoken, on: :collection
+    get :me, on: :collection
+    put :update_avatar, on: :member
   end
 
   root 'start_ups#index'

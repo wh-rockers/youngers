@@ -1,0 +1,4 @@
+$(".edit_user").hide();
+$(".modal").find(".modal-body").html("<%= j render 'shared/success' %>");
+$(".modal").modal('show');
+setTimeout("$('.modal').modal('hide');", 2000);

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :update_avatar]
 
   def index
     @users = User.all
@@ -40,6 +40,14 @@ class UsersController < ApplicationController
     put_policy = Qiniu::Auth::PutPolicy.new('startups')
     token = Qiniu::Auth.generate_uptoken(put_policy)
     render json: { uptoken: token }
+  end
+
+  def me
+    @user = current_user
+  end
+
+  def update_avatar
+    @user.update_attributes(avatar: user_params[:avatar])
   end
 
   private

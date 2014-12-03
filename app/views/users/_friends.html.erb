@@ -19,8 +19,11 @@
   </div>
 </div>
 <div class="friends-list">
-  <% @user.friends.each do |friend| %>
-    <%= image_tag friend.pic('small'), class: 'friend-avatar' %>
-  <% end %>
+  <p class="friends-number"><%= @user.name %>的朋友们 (<%= @user.friends.count %>)</p>
+  <div class="friends-avatar">
+    <% @user.friends.each do |friend| %>
+      <%= image_tag friend.pic('small'), class: 'friend-avatar' %>
+    <% end %>
+  </div>
 </div>
 <div class="remarks"></div>

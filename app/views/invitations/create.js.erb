@@ -1,2 +1,3 @@
-$("#invitation-modal").find(".modal-body").html("<%= j render 'success' %>");
+$("#invitation-modal").find(".modal-body").html("<%= j render 'shared/success' %>");
+$("#invitation-modal").modal('show');
 setTimeout("$('#invitation-modal').modal('hide');", 2000);
