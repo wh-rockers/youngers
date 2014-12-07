@@ -103,12 +103,26 @@
 			text-align: center;
 			@include avatar-section;
 		}
-		p {
+		.note {
 			text-align: center;
 			margin-top: 15px;
 			font-size: 16px;
+			color: red;
 		}
 	}
+}
+
+#new_user {
+	.invitation_code_error {
+		color: red;
+		margin-left: 100px;
+		display: none;
+	}
+}
+
+.item .explain {
+	text-align: center;
+	margin: 50px auto;
 }
 
 #user-show {
@@ -167,8 +181,8 @@
 	}
 }
 
-// me page
-.me {
+// profile page
+.profile {
 	.avatar {
 		@include avatar-section;
 		.edit_user {

@@ -2,11 +2,15 @@ Rails.application.routes.draw do
 
   resources :remarks, only: [:create, :update]
   resources :invitations, only: [:create, :new]
+  devise_scope :user do
+    put '/update_registration' => 'custom_devise/registrations#update', :as => :update_user_registration
+  end
   devise_for :users, 
              :controllers => { :registrations => "custom_devise/registrations"}
   resources :users do 
     get :uptoken, on: :collection
     get :me, on: :collection
+    get :profile, :collection
     put :update_avatar, on: :member
   end
 
@@ -14,7 +18,6 @@ Rails.application.routes.draw do
   resources :start_ups
 
   get '/about' => 'static#about'
-  get '/activities' => 'static#activities'
   get '/policies' => 'static#policies'
 
   # The priority is based upon order of creation: first created -> highest priority.

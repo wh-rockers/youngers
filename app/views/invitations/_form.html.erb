@@ -2,5 +2,5 @@
   <%= f.input :note, label: false, input_html: { placeholder: '跟他打给招呼', rows: '4' } %>
   <%= f.hidden_field :from_user_id, value: current_user.id %>
   <%= f.hidden_field :to_user_id, value: @invitation.to_user_id %>
-  <%= f.submit '约他喝咖啡', class: 'btn btn-info invitation-button' %>
+  <%= f.submit '约他喝咖啡', disabled_with: '正在发送', class: 'btn btn-info invitation-button' %>
 <% end %>

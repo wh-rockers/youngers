@@ -50,7 +50,7 @@ uploadRegistrationAvatar = ->
 uploadRegistrationAvatar() 
 
 modifyAvatarInProfile = ->
-  if $(".me").length > 0
+  if $(".profile").length > 0
     uploader = Qiniu.uploader(
       runtimes: "html5,flash,html4"
       browse_button: "avatar_upload_button" #上传选择的点选按钮，**必需**

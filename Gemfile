@@ -15,6 +15,7 @@ gem 'bootstrap-material-design'
 gem 'qiniu'
 gem 'whenever'
 gem 'sunzi'
+gem 'public_activity'
 gem 'social-share-button', git: 'git@github.com:apprentice1988/social-share-button.git'
 group :development do
   gem 'better_errors'

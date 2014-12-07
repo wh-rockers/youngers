@@ -1,3 +1,5 @@
 class Invitation < ActiveRecord::Base
-	enum state: %w(pending allow refuse)
+	enum state: [:pending, :allow, :refuse]
+  include PublicActivity::Model
+  tracked
 end

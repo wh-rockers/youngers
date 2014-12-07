@@ -43,11 +43,15 @@ class UsersController < ApplicationController
   end
 
   def me
-    @user = current_user
+    @info = PersonalInfo.new(current_user)
   end
 
   def update_avatar
     @user.update_attributes(avatar: user_params[:avatar])
+  end
+
+  def profile
+    @user = current_user
   end
 
   private

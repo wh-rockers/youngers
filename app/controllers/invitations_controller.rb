@@ -5,6 +5,7 @@ class InvitationsController < ApplicationController
 
   def create
   	@invitation = Invitation.new(permit_params)
+    puts '==========1'
   	respond_to do |format|
 	  	if @invitation.save
 	  		format.js
@@ -14,6 +15,6 @@ class InvitationsController < ApplicationController
 
   private
   def permit_params
-  	params.require(:invitation).permit(:to_user_id, :from_user_id)
+  	params.require(:invitation).permit(:to_user_id, :from_user_id, :note)
   end
 end

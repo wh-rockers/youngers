@@ -9,9 +9,9 @@
       <%= render 'layouts/loading' %>
     </div>
   </div>
-  <p>默认头像真的好丑，请相信我</p>
+  <p class='note'>默认头像真的好丑，请相信我</p>
 </div>
-<%= form_for(@registration, url: registration_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
+<%= form_for(@registration, url: registration_path(resource_name), remote: true, html: { class: "form-horizontal" }) do |f| %>
     <fieldset>
       <div class="form-group">
       	<%= f.label :name, '用户名', class: 'col-lg-2 control-label' %>
@@ -39,35 +39,12 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :industry, '行业', class: 'col-lg-2 control-label' %>
+        <div class="col-lg-2 control-label">邀请码</div>
         <div class="col-lg-10">
-          <%= f.select :industry_id, Industry.pluck(:name, :id),  class: 'form-control'  %>
+          <%= text_field_tag :invitation_code, nil, required: true,  class: 'form-control' %>
         </div>
       </div>
-      <div class="form-group">
-      	<%= f.label :corp, '工作单位', class: 'col-lg-2 control-label' %>
-        <div class="col-lg-10">
-        	<%= f.text_field :corp, required: true,  class: 'form-control', placeholder: '例如：谷歌(或者某个学校)'  %>
-        </div>
-      </div>
-      <div class="form-group">
-      	<%= f.label :position, '职位', class: 'col-lg-2 control-label' %>
-        <div class="col-lg-10">
-        	<%= f.text_field :position, required: true,  class: 'form-control', placeholder: '例如：前端开发工程师'  %>
-        </div>
-      </div>
-      <div class="form-group">
-      	<%= f.label :skill, '技能', class: 'col-lg-2 control-label' %>
-        <div class="col-lg-10">
-        	<%= f.text_field :skill, required: true,  class: 'form-control', placeholder: '例如：前端MVC使用, 移动应用开发'  %>
-        </div>
-      </div>
-      <div class="form-group">
-      	<%= f.label :desc, '个人介绍', class: 'col-lg-2 control-label' %>
-        <div class="col-lg-10">
-        	<%= f.text_area :desc,  class: 'form-control', placeholder: '例如：爱好交朋友, 喜欢产品, 创业'  %>
-        </div>
-      </div>
+      <p class='invitation_code_error'>* 您输入的激活码错误</p>
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
           <%= f.submit '确认提交', class: 'btn btn-primary'  %>
