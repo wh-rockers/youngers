@@ -1,0 +1,12 @@
+<% user = User.find(invitating.to_user_id) %>
+<div class="invitation-news row" id="invitation-<%= invitating.id %>">
+  <div class="invitation-content col-xs-9">
+    <%= image_tag user.pic('50') %>
+    <span>@<%= user.name %> <%= notification_word(invitating) %></span>
+  </div>
+  <div class="actions col-xs-3">
+    <%= link_to as_read_invitation_path(invitating), method: :put, remote: true do  %>
+      <i class="mdi-content-clear remove-unread-noti"></i>
+    <% end %>
+  </div>
+</div>

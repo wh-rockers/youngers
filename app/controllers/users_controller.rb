@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :update_avatar]
 
   def index
-    @users = User.all
+    @users = User.registration_finished
   end
 
   def show

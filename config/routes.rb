@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   resources :remarks, only: [:create, :update]
-  resources :invitations, only: [:create, :new]
+  resources :invitations, only: [:create, :new, :update] do
+    put :as_read, on: :member
+  end
   devise_scope :user do
-    put '/update_registration' => 'custom_devise/registrations#update', :as => :update_user_registration
+    put '/update_registration/:registration_id' => 'custom_devise/registrations#update', :as => :update_user_registration
   end
   devise_for :users, 
              :controllers => { :registrations => "custom_devise/registrations"}

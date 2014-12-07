@@ -18,6 +18,44 @@
 		width: 50px;
 	}
 }
+//me page
+.me {
+	.title {
+		font-size: 16px;
+	}
+	.news {
+		.invitation-news {
+			.invitation-content {
+				span {
+					margin-left: 20px;
+				}
+			}
+			.actions {
+				.invitation-action {
+					display: inline-block;
+				}
+				a {
+					text-decoration: none;
+					.remove-unread-noti {
+						font-size: 24px;
+						line-height: 50px;
+						color: rgb(136, 136, 136);
+					}
+				}
+			}
+		}
+	}
+	.friends {
+		ul {
+			list-style: none;
+			li {
+				a {
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
 .users-list {
 	.welcome-user {
 		text-align: center;

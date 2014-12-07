@@ -1,4 +1,4 @@
 $("#invitation-modal").find(".modal-body").html("<%= j render 'shared/success' %>");
 $("#invitation-modal").modal('show');
-$(".#user-#{@invitation.to_user_id}").find('.invitation-action').html("<a class='btn btn-info disabled' href='#'>等待回复中</a>");
+$("#user-<%= @invitation.to_user_id %>").find('.invitation-action').html("<a class='btn btn-info disabled' href='#'>等待回复中</a>");
 setTimeout("$('#invitation-modal').modal('hide');", 2000);

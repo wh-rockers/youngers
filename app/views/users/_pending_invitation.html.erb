@@ -1,0 +1,17 @@
+<% user = User.find(invitation.from_user_id) %>
+<div class="invitation-news row" id="invitation-<%= invitation.id %>">
+  <div class="invitation-content col-xs-9">
+    <%= image_tag user.pic('50') %>
+    <span>@<%= user.name %> 约你喝咖啡: <%= invitation.note %></span>
+  </div>
+  <div class="actions col-xs-3">
+    <%= form_for invitation,method: :put, remote: true, html: {class: 'invitation-action'} do |f| %>
+      <%= f.hidden_field :state, value: 'allow' %>
+      <%= f.submit '同意', data: { confirm: "同意对方邀请， 对方和你将彼此加入对方的好友列表， 并且交换联系方式。" }, disabled_with: '同意',class: 'btn btn-success' %>
+    <% end %>
+    <%= form_for invitation,method: :put, remote: true, html: {class: 'invitation-action'} do |f| %>
+      <%= f.hidden_field :state, value: 'refuse' %>
+      <%= f.submit '拒绝', data: { confirm: "你确定要拒绝对方的邀请吗?" }, disabled_with: '拒绝',class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+</div>

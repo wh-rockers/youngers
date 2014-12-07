@@ -1,0 +1,5 @@
+$("#invitation-<%= @invitation.id %>").animate({
+  height: 0
+},500, function(){
+  $("#invitation-<%= @invitation.id %>").remove();
+})

@@ -1,6 +1,5 @@
 <p class="explain">为了体现和大家交流的诚意， 花点时间总是应该的</p>
-<%= form_for @registration, url: update_user_registration_path, method: :put, remote: true, html: { class: "form-horizontal" } do |f| %>
-  <%= hidden_field_tag :user_id, @registration.id %>
+<%= form_for @registration, url: update_user_registration_path(@registration), method: :put, remote: true, html: { class: "form-horizontal" } do |f| %>
   <div class="form-group">
     <%= f.label :industry, '行业', class: 'col-lg-2 control-label' %>
     <div class="col-lg-10">

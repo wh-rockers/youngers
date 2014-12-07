@@ -7,7 +7,7 @@ class CustomDevise::RegistrationsController < Devise::RegistrationsController
 		return @invitation_code_error = true unless InvitationCode.find_by(code: params[:invitation_code])
 		@registration = User.new(permit_params)
 		if @registration.save
-			sign_in(@registration)
+			sign_in @registration
 			InvitationCode.find_by_code(params[:invitation_code]).update_attributes(used_by: @registration.id)
 		else
 			return false
@@ -15,13 +15,14 @@ class CustomDevise::RegistrationsController < Devise::RegistrationsController
 	end
 
 	def update
-		@registration = User.find(params[:user_id])
+		@registration = User.find(params[:registration_id])
 		respond_to do |format|
 			if @registration.update_attributes(permit_params)
 				if @registration.registration_ongoing?
 					@registration.registration_finished!
 					format.js
 				else
+					sign_in @registration
 					format.html { redirect_to users_path }
 				end
 			else

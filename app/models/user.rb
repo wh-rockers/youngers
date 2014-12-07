@@ -10,13 +10,11 @@ class User < ActiveRecord::Base
   enum registration_state: [:registration_ongoing, :registration_finished]
 
   def friends
-  	invitation_to_me_ids = Invitation.allow.where(to_user_id: id).map(&:from_user_id)
-  	inviting_ids = Invitation.allow.where(from_user_id: id).map(&:to_user_id)
-  	User.where(id: (invitation_to_me_ids | inviting_ids))
+  	User.where(id: friend_ids)
   end
 
   def is_friend_of?(user)
-    friends.include? user
+    friend_ids.include? user.id
   end
 
   def pending_invitations
@@ -39,6 +37,8 @@ class User < ActiveRecord::Base
 
   def pic(version='normal')
     case version
+    when '50'
+      "#{avatar}?imageView2/1/w/50/h/50"
     when 'small'
       "#{avatar}?imageView2/1/w/60/h/60"
     else

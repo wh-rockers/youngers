@@ -1,14 +1,27 @@
-<div class="news">
-  <% @info.invitations.each do |invitation| %>
-    <p>invitations</p>
-  <% end %>
+<div class="me">
+  <div class="news well">
+    <p class="title">新的消息</p>
+    <% @info.pending_invitations.each do |invitation| %>
+      <%= render 'pending_invitation', invitation: invitation %>
+    <% end %>
+    <% @info.unread_invitating_results.each do |invitating| %>
+      <%= render 'unread_invitating', invitating: invitating %>
+    <% end %>
+  </div>
+  <div class="activities well">
+    <p class="title">好友动态</p>
+  </div>
+  <div class="friends well">
+    <p class="title">我的好友</p>
+    <ul>
+      <% current_user.friends.each do |friend| %>
+        <li>
+          <a class="avatar-show-contact" href="#" data-content="<%= popover_contact(friend) %>" rel="popover"><%= image_tag friend.pic('small'), class: 'friend_avatar' %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="invitation_codes well">
+    <p class="title">邀请码</p>
+  </div>
 </div>
-<div class="activities">
-  
-</div>
-<div class="friends">
-  <% current_user.friends.each do |friend| %>
-    <%= image_tag friend.pic('small'), class: 'friend_avatar' %>
-  <% end %>
-</div>
-<div class="skills"></div>

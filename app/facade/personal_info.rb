@@ -5,12 +5,12 @@ class PersonalInfo
     @user = user
   end
 
-  def invitations
-    Invitation.where(to_user_id: user.id).pending
+  def pending_invitations
+    user.pending_invitations
   end
 
-  def invitatings
-    Invitation.where(from_user_id: user.id, read: false).where(state: [1, 2])
+  def unread_invitating_results
+    user.invitatings.where(read: false, state: [1, 2])
   end
 
 end
