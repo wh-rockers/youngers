@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  include User::Role
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name, :email, :avatar
@@ -14,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def can_generate_invitation_code?
-    invitation_codes.count < invitation_code_limit
+    admin? || invitation_codes.count < invitation_code_limit
   end
 
   def friends
