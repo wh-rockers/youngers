@@ -6,5 +6,5 @@
   <%= render 'unread_invitating', invitating: invitating %>
 <% end %>
 <% if @info.pending_invitations.empty? && @info.unread_invitating_results.empty? %>
-  <p>没有新的消息</p>
+  <p class='note'>没有新的消息</p>
 <% end %>

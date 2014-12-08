@@ -24,6 +24,10 @@
 		font-size: 16px;
 	}
 	.news {
+		.note { 
+			text-align: center;
+			margin: 15px;
+	  }
 		.invitation-news {
 			.invitation-content {
 				span {
@@ -238,6 +242,11 @@
 				}
 			}
 			.friends-list {
+				padding: 20px 30px;
+				.friends-number {
+					color: #999;
+					font-size: 16px;
+				}
 				.friend-avatar {
 					display: inline-block;
 					border-radius: 50%;
