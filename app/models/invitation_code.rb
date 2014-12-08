@@ -1,6 +1,6 @@
 class InvitationCode < ActiveRecord::Base
   belongs_to :user
-  before_save :set_code
+  before_create :set_code
 
   private 
 

@@ -55,7 +55,27 @@
 			}
 		}
 	}
+	.invitation_codes {
+		.explain {
+			text-align: center;
+		}
+		.generated_code {
+			.single-code {
+				width: 600px;
+				margin: 20px auto;
+				div {
+					text-align: center;
+				}
+			}
+		}
+		.generate_code_section {
+			text-align: center;
+			margin-top: 30px;
+		}
+	}
 }
+
+// me page end
 .users-list {
 	.welcome-user {
 		text-align: center;

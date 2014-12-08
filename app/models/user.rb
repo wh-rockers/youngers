@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
   has_many :invitation_codes
   enum registration_state: [:registration_ongoing, :registration_finished]
 
+  def invitation_code_limit
+    friend_ids.count / 2 + 1
+  end
+
+  def can_generate_invitation_code?
+    invitation_codes.count < invitation_code_limit
+  end
+
   def friends
   	User.where(id: friend_ids)
   end

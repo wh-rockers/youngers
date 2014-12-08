@@ -23,5 +23,14 @@
   </div>
   <div class="invitation_codes well">
     <p class="title">邀请码</p>
+    <p class="explain">* 每个新注册用户都会获得自动获得一个邀请码。每两个好友可以增加一个邀请码。</p>
+    <div class="generated_code">
+      <% current_user.invitation_codes.each do |code| %>
+        <%= render 'invitation_codes/single_code', code: code %>
+      <% end %>
+    </div>
+    <div class="generate_code_section">
+      <%= render 'invitation_codes/generate_code_section', user: current_user %>
+    </div>
   </div>
 </div>

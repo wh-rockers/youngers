@@ -1,0 +1,12 @@
+<div class="single-code row">
+    <div class="col-xs-3"><%= code.code %></div>
+    <div class="col-xs-9">
+      <% if code.used_by %>
+        <% use_code_user = User.find(code.used_by) %>
+        <span>已被</span>
+        <%= image_tag use_code_user.pic('50') %> @<%= use_code_user.name %>使用
+      <% else %>
+        未被使用
+      <% end %>
+    </div>
+</div>

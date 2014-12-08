@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :invitation_codes
   resources :remarks, only: [:create, :update]
   resources :invitations, only: [:create, :new, :update] do
     put :as_read, on: :member

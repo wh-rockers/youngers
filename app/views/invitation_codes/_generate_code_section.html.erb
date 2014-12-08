@@ -1,0 +1,5 @@
+<% if user.can_generate_invitation_code? %>
+  <%= link_to '生成邀请码', invitation_codes_path, method: :post, remote: true, disabled_with: '生成邀请码',  class: 'btn btn-success' %>
+<% else %>
+  <a href="#" class='btn btn-primary disabled'>生成邀请码数量达到上限</a>
+<% end %>

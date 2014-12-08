@@ -21,7 +21,7 @@ module UsersHelper
   end
 
   def popover_contact(user)
-    s = "<p>邮箱: #{user.email}</p>"
+    s = "<p style='text-align: center;'>@#{user.name}</p><p>邮箱: #{user.email}</p>"
     s.concat "<p>手机号:  #{user.phone_number}</p>" if user.phone_number
     s.concat "<p>微信号: #{user.weixin_number}</p>" if user.weixin_number
     s.concat "<p>QQ号: #{user.qq_number}</p>" if user.qq_number
