@@ -1,0 +1,8 @@
+<p class="title">我的好友</p>
+<ul>
+  <% current_user.friends.each do |friend| %>
+    <li>
+      <a class="avatar-show-contact" href="#" data-content="<%= popover_contact(friend) %>" rel="popover"><%= image_tag friend.pic('small'), class: 'friend_avatar' %></a>
+    </li>
+  <% end %>
+</ul>

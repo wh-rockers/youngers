@@ -1,36 +1,14 @@
 <div class="me">
   <div class="news well">
-    <p class="title">新的消息</p>
-    <% @info.pending_invitations.each do |invitation| %>
-      <%= render 'pending_invitation', invitation: invitation %>
-    <% end %>
-    <% @info.unread_invitating_results.each do |invitating| %>
-      <%= render 'unread_invitating', invitating: invitating %>
-    <% end %>
+    <%= render 'users/me_news' %>
   </div>
   <div class="activities well">
     <p class="title">好友动态</p>
   </div>
   <div class="friends well">
-    <p class="title">我的好友</p>
-    <ul>
-      <% current_user.friends.each do |friend| %>
-        <li>
-          <a class="avatar-show-contact" href="#" data-content="<%= popover_contact(friend) %>" rel="popover"><%= image_tag friend.pic('small'), class: 'friend_avatar' %></a>
-        </li>
-      <% end %>
-    </ul>
+    <%= render 'users/me_friends' %>
   </div>
   <div class="invitation_codes well">
-    <p class="title">邀请码</p>
-    <p class="explain">* 每个新注册用户都会获得自动获得一个邀请码。每两个好友可以增加一个邀请码。</p>
-    <div class="generated_code">
-      <% current_user.invitation_codes.each do |code| %>
-        <%= render 'invitation_codes/single_code', code: code %>
-      <% end %>
-    </div>
-    <div class="generate_code_section">
-      <%= render 'invitation_codes/generate_code_section', user: current_user %>
-    </div>
+    <%= render 'users/me_invitation_codes' %>
   </div>
 </div>

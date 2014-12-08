@@ -9,7 +9,7 @@ class Invitation < ActiveRecord::Base
   
   def create_friendship
     invitating_user = User.find(from_user_id)
-    return if invitating_user.friend_ids.include? to_user_id
+    return if invitating_user.friend_ids.include?(to_user_id)
     invitating_user.friend_ids.push to_user_id
     invitating_user.friend_ids_will_change!
     invitating_user.save!

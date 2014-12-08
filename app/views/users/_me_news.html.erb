@@ -1,0 +1,10 @@
+<p class="title">新的消息</p>
+<% @info.pending_invitations.each do |invitation| %>
+  <%= render 'pending_invitation', invitation: invitation %>
+<% end %>
+<% @info.unread_invitating_results.each do |invitating| %>
+  <%= render 'unread_invitating', invitating: invitating %>
+<% end %>
+<% if @info.pending_invitations.empty? && @info.unread_invitating_results.empty? %>
+  <p>没有新的消息</p>
+<% end %>
