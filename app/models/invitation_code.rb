@@ -6,7 +6,7 @@ class InvitationCode < ActiveRecord::Base
   private 
 
   def set_code
-    self.code ||= ('a'..'z').to_a.shuffle[0,8].join
+    self.code ||= ('A'..'Z').to_a.shuffle[0,8].join
   end
 
   def check_friendship
