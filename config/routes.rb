@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     put :update_avatar, on: :member
   end
 
-  root 'start_ups#index'
+  root 'users#index'
   resources :start_ups
 
   get '/about' => 'static#about'
