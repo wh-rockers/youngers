@@ -7,6 +7,7 @@ body {
 		width: 100%;
 		height: 0;
 		padding-top: 29.072%;
+		position: relative;
 	}
 	.container {
 		padding: 0;
@@ -14,13 +15,21 @@ body {
 }
 
 @media(max-width: 768px) {
-	.float-nav-image .social-buttons {
-		display: none;
+	.float-nav-image {
+		.social-buttons, .manifesto { display: none; }
 	}
 }
 
 @media(min-width: 768px) {
 	.float-nav-image {
+		.manifesto {
+			color: rgb(255, 255, 255);
+			position: absolute;
+			font-size: 22px;
+			margin-left: 42%;
+			font-family: cursive;
+			top: 28%;
+		}
 		.social-buttons {
 			margin-top: -100px;
 			float: right;
