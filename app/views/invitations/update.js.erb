@@ -2,4 +2,7 @@ $("#invitation-<%= @invitation.id %>").animate({
   height: 0
 },500, function(){
   $("#invitation-<%= @invitation.id %>").remove();
-})
+});
+<% if @invitation.allow? %>
+  $(".friends").html("<%= j render 'users/me_friends' %>");
+<% end %>

@@ -16,6 +16,7 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.find(params[:id])
     if permit_params.fetch('state', 'refuse') == 'allow'
       @invitation.allow!
+      @invitation.create_activity :allow, owner: current_user, recipient: User.find(@invitation.from_user_id)
     elsif 
       @invitation.refuse!
     end

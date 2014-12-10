@@ -1,7 +1,6 @@
 class Invitation < ActiveRecord::Base
 	enum state: [:pending, :allow, :refuse]
-  include PublicActivity::Model
-  tracked
+  include PublicActivity::Common
   after_save :create_friendship, :if => lambda { self.allow? }
 
   
@@ -10,12 +9,8 @@ class Invitation < ActiveRecord::Base
   def create_friendship
     invitating_user = User.find(from_user_id)
     return if invitating_user.friend_ids.include?(to_user_id)
-    invitating_user.friend_ids.push to_user_id
-    invitating_user.friend_ids_will_change!
-    invitating_user.save!
+    invitating_user.update_attributes(friend_ids: (invitating_user.friend_ids + [to_user_id]))
     invitation_user = User.find(to_user_id)
-    invitation_user.friend_ids.push from_user_id
-    invitation_user.friend_ids_will_change!
-    invitation_user.save!
+    invitation_user.update_attributes(friend_ids: (invitation_user.friend_ids + [from_user_id]))
   end
 end
