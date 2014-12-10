@@ -78,6 +78,15 @@
 			margin-top: 30px;
 		}
 	}
+	.link-to-profile {
+		text-align: center;
+		height: 80px;
+		font-size: 20px;
+		a {
+			display: inline-block;
+			padding-top: 10px;
+		}
+	}
 }
 
 // me page end
@@ -259,10 +268,34 @@
 
 // profile page
 .profile {
-	.avatar {
-		@include avatar-section;
-		.edit_user {
-			display: none;
+	.title {
+		font-size: 20px;
+		span {
+			font-size: 14px;
+			margin-left: 10px;
+		}
+	}
+	.info {
+		padding: 30px;
+	}
+	.row {
+		div {
+			line-height: 30px;
+			&:first-child {
+				text-align: right;
+			}
+			&:last-child {
+				text-align: center;
+			}
+		}
+	}
+	.basic-info {
+		.avatar {
+			text-align: center;
+			@include avatar-section;
+			.edit_user {
+				display: none;
+			}
 		}
 	}
 }

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users do 
     get :uptoken, on: :collection
     get :me, on: :collection
-    get :profile, :collection
+    get :profile, :member
     put :update_avatar, on: :member
   end
 

@@ -1,16 +1,39 @@
 <div class="profile">
-  <div class="avatar" id='me-avatar'>
-    <div class="avatar_section"><%= image_tag @user.pic, class: 'avatar-pic' %></div> 
-    <div id="avatar_upload_button" class='btn btn-primary'>更换头像</div>
-    <%= simple_form_for current_user, url: update_avatar_user_path(current_user), method: :put, remote: true do |f| %>
-      <%= f.hidden_field :avatar, value: current_user.avatar %>
-      <%= f.submit "保存改动", class: 'btn btn-warning' %>
-    <% end %>
-    <div class="loading-avatar">
-      <%= render 'layouts/loading' %>
+  <div class="basic-info well">
+    <p class="title">基本信息
+      <%= link_to edit_user_path(@user, type: 'basic'), remote: true do %>
+        <span><i class="mdi-content-create"></i>编辑</span></p>
+      <% end %>
+    <div class="avatar" id='me-avatar'>
+      <div class="avatar_section"><%= image_tag @user.pic, class: 'avatar-pic' %></div> 
+      <div id="avatar_upload_button" class='btn btn-primary'>更换头像</div>
+      <%= simple_form_for current_user, url: update_avatar_user_path(current_user), method: :put, remote: true do |f| %>
+        <%= f.hidden_field :avatar, value: current_user.avatar %>
+        <%= f.submit "保存改动", class: 'btn btn-warning' %>
+      <% end %>
+      <div class="loading-avatar">
+        <%= render 'layouts/loading' %>
+      </div>
+    </div>
+    <div class="info basic-content">
+      <%= render 'users/profile/basic_content' %>
     </div>
   </div>
-  <div class="profile">
+  <div class="career-info well">
+    <p class="title">职业信息<%= link_to edit_user_path(@user, type: 'career'), remote: true do %>
+        <span><i class="mdi-content-create"></i>编辑</span></p>
+      <% end %></p>
+    <div class="info career-content">
+      <%= render 'users/profile/career_content' %>
+    </div>
+  </div>
+  <div class="contact-info well">
+    <p class="title">联系方式<%= link_to edit_user_path(@user, type: 'contact'), remote: true do %>
+        <span><i class="mdi-content-create"></i>编辑</span></p>
+      <% end %></p>
+    <div class="info contact-content">
+      <%= render 'users/profile/contact_content' %>
+    </div>
   </div>
 </div>
 <div class="modal">

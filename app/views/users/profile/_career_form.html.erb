@@ -1,0 +1,38 @@
+<%= form_for @user, method: :put, remote: true, html: { class: "form-horizontal" } do |f| %>
+  <%= hidden_field_tag :type, 'career'  %>
+  <div class="form-group">
+    <%= f.label :industry, '行业', class: 'col-lg-2 control-label' %>
+    <div class="col-lg-10">
+      <%= f.select :industry_id, Industry.pluck(:name, :id),  class: 'form-control'  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :corp, '工作单位', class: 'col-lg-2 control-label' %>
+    <div class="col-lg-10">
+      <%= f.text_field :corp, required: true,  class: 'form-control'  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :position, '职位', class: 'col-lg-2 control-label' %>
+    <div class="col-lg-10">
+      <%= f.text_field :position, required: true,  class: 'form-control'  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :skill, '技能', class: 'col-lg-2 control-label' %>
+    <div class="col-lg-10">
+      <%= f.text_field :skill, required: true,  class: 'form-control'  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :desc, '个人介绍', class: 'col-lg-2 control-label' %>
+    <div class="col-lg-10">
+      <%= f.text_area :desc,  class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <%= f.submit '保存', class: 'btn btn-primary'  %>
+    </div>
+  </div>
+<% end %>

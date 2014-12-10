@@ -11,4 +11,9 @@
   <div class="invitation_codes well">
     <%= render 'users/me_invitation_codes' %>
   </div>
+  <div class="link-to-profile well">
+    <%= link_to user_profile_path(current_user) do %>
+      查看编辑个人信息 <i class="mdi-navigation-arrow-forward"></i>
+    <% end %>
+  </div>
 </div>

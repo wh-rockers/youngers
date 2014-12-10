@@ -1,0 +1,7 @@
+<% if @type == 'basic' %>
+  $(".basic-content").html("<%= j render 'users/profile/basic_content' %>");
+<% elsif @type == 'career' %>
+  $(".career-content").html("<%= j render 'users/profile/career_content' %>");
+<% else %>
+  $(".contact-content").html("<%= j render 'users/profile/contact_content' %>");
+<% end %>

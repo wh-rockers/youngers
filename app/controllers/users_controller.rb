@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @type = params[:type]
   end
 
   def create
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    respond_with(@user)
+    @type = params[:type]
   end
 
   def destroy
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = current_user
+    @user = User.find(params[:user_id])
   end
 
   private
@@ -60,6 +61,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:skill, :desc, :corp, :position, :name, :industry_id, :avatar)
+      params.require(:user).permit(:skill, :desc, :corp, :position, :name, :industry_id, :avatar, :weixin_number, :phone_number, :qq_number)
     end
 end
