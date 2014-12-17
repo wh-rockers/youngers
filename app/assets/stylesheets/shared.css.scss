@@ -11,3 +11,20 @@
     font-size: 20px;
   }
 }
+
+#editor-upload-image-modal {
+  .modal-body {
+    text-align: center;
+    .upload-section {
+      .loading-upload-image {
+        display: none;
+      }
+      p {
+        display: inline-block;
+        input {
+          width: 200px;
+        }
+      }
+    }
+  }
+}

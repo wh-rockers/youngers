@@ -1,0 +1,6 @@
+<%= simple_form_for @topic do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.submit '发起活动' %>
+<% end %>
+<%= render 'shared/editor_upload_image' %>

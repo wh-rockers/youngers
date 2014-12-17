@@ -1,0 +1,21 @@
+<div class="modal" id='editor-upload-image-modal' onmousedown="event.preventDefault();">
+  <div class="modal-dialog">
+    <div class="modal-content" style='padding-bottom: 30px;'>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">上传图片</h4>
+      </div>
+      <div class="modal-body" style='padding-top: 40px;'>
+        <div class="upload-section">
+          <div href="#" class="btn btn-info" id="upload-from-pc">上传图片</div>
+        </div>
+        <div class="loading-upload-image">
+          <%= render 'layouts/loading' %>
+        </div>
+        <span id='upload-image-url'></span>
+        <div class="img-show"></div>
+        <div class="btn btn-warning" id='editor-upload-image-confirm'>确定</div>
+      </div>
+    </div>
+  </div>
+</div>

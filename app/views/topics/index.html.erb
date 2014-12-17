@@ -1,0 +1,12 @@
+<div class="new-topic-button">
+  <% if current_user %>
+    <%= link_to '', new_topic_path, class: 'btn btn-info btn-fab btn-raised mdi-content-add' %>
+  <% else %>
+    <%= link_to '', new_user_registration_path, class: 'btn btn-info btn-fab btn-raised mdi-content-add' %>
+  <% end %>
+</div>
+<div class="topics-list">
+  <% @topics.each do |topic| %>
+    <%= render 'topic', topic: topic %>
+  <% end %>
+</div>
