@@ -15,9 +15,11 @@
     </div>
     <div class="col-xs-11 top-comment-content"><%= top_comment.content %></div>
   </div>
-  <div class="reply">
-    <%= link_to '- 回复', new_topic_comment_path(topic_id: @topic.id, parent_id: top_comment.id), remote: true %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="reply">
+      <%= link_to '- 回复', new_topic_comment_path(topic_id: @topic.id, parent_id: top_comment.id), remote: true %>
+    </div>
+  <% end %>
   <div class="tiny-comment-list" id="comment-<%= top_comment.id %>-tiny-comment-list">
     <% @topic.topic_comments.tiny_level.where(parent_id: top_comment.id).each do |tiny_comment| %>
       <%= render 'topic_comments/tiny_comment', tiny_comment: tiny_comment %>
