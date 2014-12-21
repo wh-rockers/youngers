@@ -13,8 +13,8 @@
     <div class="col-xs-3 shares">
       <div class="creator"><%= image_tag(@topic.user.pic('40')) %></div>
       <div class="social-buttons">
-        <%= link_to '', 'javascript:void(0)',rel: 'popover',  data: {trigger: 'focus'},  :class => "weixin-share", id: 'weixin_share_topic', title: '分享到微信'  %>
-        <%= social_share_button_tag("光谷活动 － #{@topic.title} - 光谷创客", :url => "localhost:3000/topics/3") %>
+        <%= link_to '', 'javascript:void(0)',rel: 'popover',  data: {trigger: 'click'},  :class => "weixin-share", id: 'weixin_share_topic' %>
+        <%= social_share_button_tag("光谷活动 － #{@topic.title} - 光谷创客", :url => "http://startups.coffee/topics/#{@topic.id}") %>
       </div>
     </div>
   <% else %>

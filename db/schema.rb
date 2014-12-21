@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211160527) do
+ActiveRecord::Schema.define(version: 20141221044847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,15 +83,28 @@ ActiveRecord::Schema.define(version: 20141211160527) do
     t.datetime "updated_at"
   end
 
+  create_table "topic_comments", force: true do |t|
+    t.text     "content"
+    t.integer  "level",      default: 0
+    t.integer  "parent_id"
+    t.integer  "up_count",   default: 0
+    t.integer  "supporters", default: [], array: true
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "topics", force: true do |t|
     t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.integer  "supporters",       default: [], array: true
-    t.integer  "up_count",         default: 0
-    t.integer  "wanna_join_users", default: [], array: true
+    t.integer  "supporters",           default: [], array: true
+    t.integer  "up_count",             default: 0
+    t.integer  "wanna_join_users",     default: [], array: true
+    t.integer  "topic_comments_count", default: 0
   end
 
   add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree

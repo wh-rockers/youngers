@@ -1,0 +1,13 @@
+ <%= form_for @topic_comment, remote: true, html: {class: 'form-horizontal'} do |f| %>
+  <fieldset>
+    <%= f.hidden_field :topic_id, value: @topic_comment.topic_id %>
+    <%= f.hidden_field :parent_id, value: @topic_comment.parent_id %>
+    <%= f.hidden_field :level, value: 1 %>
+    <div class="form-group">
+      <div class="col-xs-10 col-xs-offset-1">
+        <%= f.text_area :content, class: 'form-control', require: true %>
+      </div>
+    </div>
+    <div style="text-align: center;"><%= f.submit '提交回复', class: 'btn btn-success' %></div>
+  </fieldset>
+<% end %>

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   belongs_to :industry
   has_many :invitation_codes
   has_many :topics
+  has_many :topic_comments
   enum registration_state: [:registration_ongoing, :registration_finished]
 
   def invitation_code_limit

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :topic_comments do
+    put :up, on: :member
+  end
+  
   resources :topics do 
     put :up, on: :member
     put :wanna_join, on: :member

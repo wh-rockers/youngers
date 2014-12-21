@@ -1,0 +1,2 @@
+if ($("#comment-<%= @topic_comment.parent_id %>-tiny-comment-list").find('#new_topic_comment').length == 0)
+  $("#comment-<%= @topic_comment.parent_id %>-tiny-comment-list").append("<%= j render 'topic_comments/tiny_comment_form' %>");

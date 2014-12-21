@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @qr = RQRCode::QRCode.new("http://baidu.com").to_img.resize(120, 120).to_data_url
+    @qr = RQRCode::QRCode.new("http://startups.coffee/topics/#{params[:id]}").to_img.resize(120, 120).to_data_url
     respond_to do |format|
       format.html
       format.js

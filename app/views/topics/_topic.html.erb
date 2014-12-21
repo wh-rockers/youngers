@@ -25,6 +25,9 @@
       <div class="col-xs-2 creator">
         <%= image_tag(topic.user.pic('40')) %>
         @<%= topic.user.name %>
+        &nbsp;&nbsp;
+        <i class="mdi-communication-comment"></i>
+        <%= topic.topic_comments_count %>
       </div>
     <% end %>
   <% end %>

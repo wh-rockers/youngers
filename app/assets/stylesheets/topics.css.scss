@@ -51,6 +51,7 @@
       }
     }
     .creator {
+      color: #999;
       padding-top: 5px;
       img {
         border-radius: 50%;
@@ -140,10 +141,6 @@
           border-radius: 6px;
           background-image: image-url('weixin.png');
           background-size: 30px;
-          .weixin-share-topic-qrcode {
-            margin-left: 40px;
-            padding-left: 40px;
-          }
         }
         .popover {
           .popover-title {
@@ -154,13 +151,10 @@
             background-color: white;
             p {
               color: black;
+              background-size: 14px;
             }
-            .share-tdcode {
-              background-image: image-url('weixin-share-tdcode.png');
-              background-size: 120px 120px;
-              width: 120px;
-              height: 120px;
-              margin-left: 40px;
+            img {
+              padding-left: 30px;
             }
           }
         }
@@ -205,7 +199,84 @@
     }
   }
   .comments {
+    padding: 20px;
+    .number {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .comment-list {
+      .top_comment {
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 20px;
+        }
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        .creator {
+          font-size: 12px;
+          div:first-child {
+            padding-left: 20px;
+          }
+          div:last-child {
+            margin-left: -2%;
+          }
+          margin-bottom: 10px;
+          .time {
+            margin-top: 5px;
+            span {
+              color: #ccc;
+            }
+          }
+        }
+        .content {
+          margin-bottom: 10px;
+          padding-left: 10px;
+          .up-comment {
+            a {
+              color: #999;
+            }
+          }
+          .top-comment-content {
+            font-size: 14px;
+            margin-left: -2%;
+          }
+        }
+        .reply {
+          margin-left: 60px;
+          margin-bottom: 15px;
+        }
+        .tiny-comment-list {
+          .creator {
+            div:last-child {
+              span {
+                color: #bbb;
+              }
+            }
+          }
+          .tiny-comment {
+            width: 95%;
+            margin-left: 5%;
+            margin-bottom: 15px;
+            .creator {
 
+            }
+            .tiny-comment-section {
+              padding-left: 10px;
+              .up-comment {
+                a {
+                  color: #999;
+                }
+              }
+              .tiny-comment-content {
+                margin-left: -2%;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
