@@ -1,0 +1,6 @@
+<p><%= @topic.up_count %>&nbsp;个赞</p>
+<div class="voter-avatar-list">
+  <% @topic.supporters.each do |supporter| %>
+    <a href="#" class="avatar-show-info" data-content="<%= popover_user_info(User.find(supporter)) %>" rel = 'popover'><%= image_tag User.find(supporter).pic('30') %></a>
+  <% end %>
+</div>

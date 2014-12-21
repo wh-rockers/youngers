@@ -1,0 +1,32 @@
+<div class="top row">
+  <% unless mobile_device? %>
+    <div class="col-xs-1 ups">
+      <%= link_to up_topic_path(@topic, from: 'topic_show'), remote: true, method: :put, class: "up-button #{voted(@topic)}", id: "up-button-#{@topic.id}" do %>
+        <i class="mdi-navigation-arrow-drop-up"></i>
+        <p class="up-count"><%= @topic.up_count %></p>
+      <% end %>
+    </div>
+    <div class="col-xs-8 title">
+      <div class="time-difference">@<%= @topic.user.name %></b>&nbsp;&nbsp;发布于 1 分钟之前</div>
+      <div class="title-body"><%= @topic.title %></div>
+    </div>
+    <div class="col-xs-3 shares">
+      <div class="creator"><%= image_tag(@topic.user.pic('40')) %></div>
+      <div class="social-buttons">
+        <%= link_to '', 'javascript:void(0)',rel: 'popover',  data: {trigger: 'focus'},  :class => "weixin-share", id: 'weixin_share_topic', title: '分享到微信'  %>
+        <%= social_share_button_tag("光谷活动 － #{@topic.title} - 光谷创客", :url => "localhost:3000/topics/3") %>
+      </div>
+    </div>
+  <% else %>
+    <div class="col-xs-2 ups">
+      <%= link_to up_topic_path(@topic), remote: true, method: :put, class: "up-button #{voted(@topic)}", id: "up-button-#{@topic.id}" do %>
+        <i class="mdi-navigation-arrow-drop-up"></i>
+        <p class="up-count"><%= @topic.up_count %></p>
+      <% end %>
+    </div>
+    <div class="col-xs-10 title">
+      <div class="time-difference"><b>@<%= @topic.user.name %></b>&nbsp;&nbsp;发布于 1 分钟之前</div>
+      <div class="title-body"><%= @topic.title %></div>
+    </div>
+  <% end %>
+</div>

@@ -16,7 +16,9 @@ gem 'qiniu'
 gem 'whenever'
 gem 'sunzi'
 gem 'public_activity'
+gem 'rqrcode_png'
 gem 'unicorn-worker-killer'
+gem 'unicorn'
 gem 'social-share-button', git: 'git@github.com:apprentice1988/social-share-button.git'
 group :development do
   gem 'better_errors'
@@ -38,5 +40,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'unicorn'
 end

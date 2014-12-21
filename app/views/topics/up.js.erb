@@ -1,0 +1,5 @@
+<% if @can_up %>
+  $("#up-button-<%= @topic.id %>").addClass('voted');
+  $("#up-button-<%= @topic.id %>").find('p').html("<%= @topic.up_count %>");
+<% end %>
+$(".voter-list").html("<%= j render 'show_voters_voter_list' %>");

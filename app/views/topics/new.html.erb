@@ -1,6 +1,6 @@
 <%= simple_form_for @topic do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
-  <%= f.submit '发起活动' %>
+  <%= f.submit '发起活动', class: 'btn btn-info' %>
 <% end %>
 <%= render 'shared/editor_upload_image' %>

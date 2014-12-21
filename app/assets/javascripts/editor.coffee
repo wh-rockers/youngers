@@ -93,8 +93,8 @@ window.QEditor =
         console.log "url is #{p}"
         $("#editor-upload-image-modal").modal('hide')
         return false if p.trim().length == 0
-        console.log $(this)
         console.log document.execCommand('insertimage', false, p)
+        editor.change()
         false
       )
       #p = prompt("Image URL:")
@@ -106,7 +106,6 @@ window.QEditor =
       # apply style
       document.execCommand(a, false, p)
     QEditor.checkSectionState(editor)
-    editor.change()
     false
 
   waitImageURL: ->

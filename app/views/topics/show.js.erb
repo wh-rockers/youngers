@@ -1,0 +1,5 @@
+$("#topic-show").find('.modal-content').html("<%= j render 'show_modal_content' %>");
+$("#topic-show").modal();
+$(".modal-backdrop").show();
+var shareContent = "<p>使用微信扫一扫， 分享到朋友圈</p><img class='weixin-share-topic-qrcode' src='<%= @qr %>' />"
+$('#weixin_share_topic').popover({placement: 'bottom', content: shareContent, html: true});

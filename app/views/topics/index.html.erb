@@ -1,12 +1,24 @@
-<div class="new-topic-button">
-  <% if current_user %>
-    <%= link_to '', new_topic_path, class: 'btn btn-info btn-fab btn-raised mdi-content-add' %>
-  <% else %>
-    <%= link_to '', new_user_registration_path, class: 'btn btn-info btn-fab btn-raised mdi-content-add' %>
+<div class="topics-index well" style='min-height: 800px;'>
+  <% unless mobile_device? %>
+    <div class="new-topic-button">
+      <% if current_user %>
+        <%= link_to '', new_topic_path, class: 'btn btn-info btn-fab btn-raised mdi-content-add' %>
+      <% else %>
+        <%= link_to '', user_session_path, class: 'btn btn-info btn-fab btn-raised mdi-content-add' %>
+      <% end %>
+    </div>
   <% end %>
+  <div class="topics-list">
+    <% @topics.each do |topic| %>
+      <%= render 'topic', topic: topic %>
+    <% end %>
+  </div>
 </div>
-<div class="topics-list">
-  <% @topics.each do |topic| %>
-    <%= render 'topic', topic: topic %>
-  <% end %>
-</div>
+<% unless mobile_device? %>
+  <div class="modal" id='topic-show'>
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.registration_finished
+    render layout: 'big-banner'
   end
 
   def show

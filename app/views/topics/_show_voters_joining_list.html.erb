@@ -1,0 +1,23 @@
+<% unless mobile_device? %>
+  <p><%= @topic.wanna_join_users.count %>&nbsp;个人想参加
+    <% if user_signed_in? && @topic.wanna_join_users.include?(current_user.id) %>
+      <%= link_to '取消参加', wanna_join_topic_path(@topic, remove: true),method: :put,remote: true %>
+    <% else %>
+      <%= link_to '我想参加', wanna_join_topic_path(@topic),method: :put,remote: true %>
+    <% end %>
+  </p>
+  <div class="joiner-avatar-list">
+    <% @topic.wanna_join_users.each do |joiner| %>
+      <a href="#" class="avatar-show-info" data-content="<%= popover_user_info(User.find(joiner)) %>" rel = 'popover'><%= image_tag User.find(joiner).pic('30') %></a>
+    <% end %>
+  </div>
+<% else %>
+  <p><%= @topic.wanna_join_users.count %>&nbsp;个人想参加
+  </p>
+  <div class="joiner-avatar-list">
+    <% @topic.wanna_join_users.each do |joiner| %>
+      <a href="#" class="avatar-show-info" data-content="<%= popover_user_info(User.find(joiner)) %>" rel = 'popover'><%= image_tag User.find(joiner).pic('30') %></a>
+    <% end %>
+  </div>
+  <%= link_to '我要参加', wanna_join_topic_path(@topic),remote: true, method: :put, class: 'btn btn-warning' %>
+<% end %>

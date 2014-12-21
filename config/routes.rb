@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :topics
+  resources :topics do 
+    put :up, on: :member
+    put :wanna_join, on: :member
+  end
   resources :invitation_codes
   resources :remarks, only: [:create, :update]
   resources :invitations, only: [:create, :new, :update] do

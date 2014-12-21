@@ -1,0 +1,228 @@
+//topics index
+.topics-index {
+  .new-topic-button {
+    margin-bottom: 20px;
+    padding-left: 20px;
+  }
+  .single-topic {
+    border-bottom: 1px dashed #eee;
+    padding: 5px 0;
+    margin-left: -20px;
+    margin-right: -20px;
+    &:hover {
+      @media (min-width: 768px) {
+        background-color: #FCF5EC;
+        cursor: pointer;
+      }
+    }
+    .ups {
+      @media (min-width: 768px) {
+        text-align: right;
+      }
+      .up-button {
+        width: 36px;
+        background: #eee;
+        display: inline-block;
+        height: 50px;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        i {
+          font-size: 36px;
+        }
+        .up-count {
+          margin-top: -12px;
+        }
+      }
+      .voted {
+        color: #DA552F;
+      }
+    }
+    .title {
+      @media (min-width: 768px) {
+        height: 50px;
+        padding-top: 10px;
+        font-size: 20px;
+      }
+      @media (max-width: 768px) {
+        height: 50px;
+        padding-top: 10px;
+        font-size: 14px;
+      }
+    }
+    .creator {
+      padding-top: 5px;
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+
+//new topic page
+.new_topic {
+  #topic_title {
+    width: 100%;
+    line-height: 28px;
+    margin-bottom: 20px;
+  }
+}
+
+// show topic
+.topic-show {
+  .top {
+    @media (max-width: 768px) {
+      padding: 10px 20px;
+    }
+    height: 70px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    padding: 10px 5px;
+    margin-left: 0;
+    margin-right: 0;
+    .ups {
+      @media (max-width: 768px) {
+        padding: 0;
+      }
+      .up-button {
+        width: 36px;
+        background: #eee;
+        display: inline-block;
+        height: 50px;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        i {
+          font-size: 36px;
+        }
+        .up-count {
+          margin-top: -12px;
+        }
+      }
+      .voted {
+        color: #DA552F;
+      }
+    }
+    .title {
+      padding: 0;
+      .time-difference {
+        b {
+          color: black;
+        }
+        font-size: 12px;
+        color: #999;
+      }
+      .title-body {
+        @media (max-width: 768px) {
+          font-size: 14px;
+        }
+        font-size: 18px;
+        margin-top: 5px;
+      }
+    }
+    .shares {
+      margin-top: 10px;
+      padding: 0;
+      .creator {
+        display: inline-block;
+        img {
+          border-radius: 50%;
+        }
+      }
+      .social-buttons {
+        display:inline-block;
+        vertical-align: middle;
+        margin-left: 5px;
+        .weixin-share {
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          border-radius: 6px;
+          background-image: image-url('weixin.png');
+          background-size: 30px;
+          .weixin-share-topic-qrcode {
+            margin-left: 40px;
+            padding-left: 40px;
+          }
+        }
+        .popover {
+          .popover-title {
+            background-color: white;
+            color: black;
+          }
+          .popover-content {
+            background-color: white;
+            p {
+              color: black;
+            }
+            .share-tdcode {
+              background-image: image-url('weixin-share-tdcode.png');
+              background-size: 120px 120px;
+              width: 120px;
+              height: 120px;
+              margin-left: 40px;
+            }
+          }
+        }
+        .social-share-button {
+          display: inline-block;
+          vertical-align: top;
+          a {
+            width: 30px;
+            height: 30px;
+            background-size: 30px;
+          }
+        }
+      }
+    }
+  }
+  .topic-content {
+    @media (max-width: 768px) {
+      padding: 10px;
+    }
+    padding: 20px 30px 0px 30px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+  }
+  .voters {
+    border-bottom: 1px solid rgb(238, 238, 238);
+    @media (max-width: 768px) {
+      padding: 10px;
+    }
+    padding: 20px 15px;
+    margin-right: 0;
+    margin-left: 0;
+    .voter-list {
+      @media (max-width: 768px) {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+      }
+    }
+    .joining-list {
+      @media (max-width: 768px) {
+        border-bottom: 1px solid #eee;
+        padding-top: 10px;
+      }
+    }
+  }
+  .comments {
+
+  }
+}
+
+//topic show modal 
+#topic-show {
+  overflow-y: hidden;
+  .modal-dialog {
+    height: 100%;
+    width: 70%;
+    max-width: 750px;
+    position: absolute;
+    right: 0;
+    margin-top: 0;
+    .modal-content {
+      background-color: #eeeeee;
+      height: 100%;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="single-topic row">
+  <% if mobile_device? %>
+    <div class="col-xs-2 ups">
+      <%= link_to up_topic_path(topic), remote: true, method: :put, class: "up-button #{voted(topic)}", id: "up-button-#{topic.id}" do %>
+        <i class="mdi-navigation-arrow-drop-up"></i>
+        <p class="up-count"><%= topic.up_count %></p>
+      <% end %>
+    </div>
+    <%= link_to topic do %>
+      <div class="col-xs-10 title">
+        <%= topic.title %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="col-xs-1 ups">
+      <%= link_to up_topic_path(topic), remote: true, method: :put, class: "up-button #{voted(topic)}", id: "up-button-#{topic.id}" do %>
+        <i class="mdi-navigation-arrow-drop-up"></i>
+        <p class="up-count"><%= topic.up_count %></p>
+      <% end %>
+    </div>
+    <%= link_to topic_path(topic), remote: true do  %>
+      <div class="col-xs-9 title">
+        <%= topic.title %>
+      </div>
+      <div class="col-xs-2 creator">
+        <%= image_tag(topic.user.pic('40')) %>
+        @<%= topic.user.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
