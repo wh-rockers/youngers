@@ -7,8 +7,8 @@
     </div>
   </div>
   <div class="row tiny-comment-section">
-    <div class="col-xs-1 up-comment">
-      <%= link_to up_topic_comment_path(tiny_comment), remote: true, method: :put do %>
+    <div class="col-xs-1 up-comment" id="comment-<%= tiny_comment.id %>-up-comment">
+      <%= link_to up_topic_comment_path(tiny_comment), remote: true, method: :put, class: "#{voted_comment(tiny_comment)}" do %>
         <i class="mdi-action-thumb-up"></i>
         <span class="up_count"><%= tiny_comment.up_count %></span> 
       <% end %>

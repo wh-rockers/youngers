@@ -13,6 +13,17 @@ class TopicCommentsController < ApplicationController
     end
   end
 
+  def up
+    @topic_comment = TopicComment.find(params[:id])
+    unless !current_user || @topic_comment.supporters.include?(current_user.id)
+      @can_up = true
+      @topic_comment.supporters.push current_user.id
+      @topic_comment.supporters_will_change!
+      @topic_comment.up_count += 1
+      @topic_comment.save
+    end
+  end
+
   private
   def permit_params
     params.require(:topic_comment).permit(:topic_id, :content, :parent_id, :level)

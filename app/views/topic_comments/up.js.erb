@@ -1,0 +1,4 @@
+<% if @can_up %>
+  $("#comment-<%= @topic_comment.id %>-up-comment").find('a').addClass('voted');
+  $("#comment-<%= @topic_comment.id %>-up-comment").find('span').text("<%= @topic_comment.up_count %>");
+<% end %>

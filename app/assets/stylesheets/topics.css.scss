@@ -236,6 +236,13 @@
           .up-comment {
             a {
               color: #999;
+              text-decoration: none;
+              &:hover {
+                color: #DA552F;
+              }
+            }
+            .voted {
+              color: #DA552F;
             }
           }
           .top-comment-content {
@@ -267,6 +274,13 @@
               .up-comment {
                 a {
                   color: #999;
+                  text-decoration: none;
+                  &:hover {
+                    color: #DA552F;
+                  }
+                }
+                .voted {
+                  color: #DA552F;
                 }
               }
               .tiny-comment-content {

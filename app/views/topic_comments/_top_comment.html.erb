@@ -7,8 +7,8 @@
     </div>
   </div>
   <div class="content row">
-    <div class="col-xs-1 up-comment">
-      <%= link_to up_topic_comment_path(top_comment), remote: true, method: :put do %>
+    <div class="col-xs-1 up-comment" id="comment-<%= top_comment.id %>-up-comment">
+      <%= link_to up_topic_comment_path(top_comment), remote: true, method: :put, class: "#{voted_comment(top_comment)}" do %>
         <i class="mdi-action-thumb-up"></i>
         <span class="up_count"><%= top_comment.up_count %></span>
       <% end %>
