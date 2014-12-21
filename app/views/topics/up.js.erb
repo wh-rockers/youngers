@@ -1,5 +1,9 @@
 <% if @can_up %>
-  $("#up-button-<%= @topic.id %>").addClass('voted');
-  $("#up-button-<%= @topic.id %>").find('p').html("<%= @topic.up_count %>");
+  <% if @from == 'topic_show' %>
+    $(".topic-show #up-button-<%= @topic.id %>").css('color', '#DA552F');
+    $(".topic-show #up-button-<%= @topic.id %>").find('p').html("<%= @topic.up_count %>");
+  <% end %>
+  $(".topics-index #up-button-<%= @topic.id %>").css('color', '#DA552F');
+  $(".topics-index #up-button-<%= @topic.id %>").find('p').html("<%= @topic.up_count %>");
 <% end %>
 $(".voter-list").html("<%= j render 'show_voters_voter_list' %>");

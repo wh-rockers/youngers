@@ -42,12 +42,14 @@
       @media (min-width: 768px) {
         height: 50px;
         padding-top: 10px;
-        font-size: 20px;
+        font-size: 14px;
+        color: #666;
       }
       @media (max-width: 768px) {
         height: 50px;
         padding-top: 10px;
         font-size: 14px;
+        color: #666;
       }
     }
     .creator {
@@ -76,7 +78,6 @@
     @media (max-width: 768px) {
       padding: 10px 20px;
     }
-    height: 70px;
     border-bottom: 1px solid rgb(238, 238, 238);
     padding: 10px 5px;
     margin-left: 0;
@@ -114,10 +115,7 @@
         color: #999;
       }
       .title-body {
-        @media (max-width: 768px) {
-          font-size: 14px;
-        }
-        font-size: 18px;
+        font-size: 14px;
         margin-top: 5px;
       }
     }
@@ -190,11 +188,21 @@
         border-bottom: 1px solid #eee;
         padding-bottom: 10px;
       }
+      a {
+        img {
+          border-radius: 50%;
+        }
+      }
     }
     .joining-list {
       @media (max-width: 768px) {
         border-bottom: 1px solid #eee;
         padding-top: 10px;
+      }
+      a {
+        img {
+          border-radius: 50%;
+        }
       }
     }
   }
@@ -218,6 +226,9 @@
           font-size: 12px;
           div:first-child {
             padding-left: 20px;
+            img {
+              border-radius: 50%;
+            }
           }
           div:last-child {
             margin-left: -2%;
@@ -267,7 +278,9 @@
             margin-left: 5%;
             margin-bottom: 15px;
             .creator {
-
+              img {
+                border-radius: 50%;
+              }
             }
             .tiny-comment-section {
               padding-left: 10px;

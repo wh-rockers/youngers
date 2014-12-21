@@ -82,6 +82,9 @@ window.QEditor =
       p = ''
       $("#upload-image-url").text('')
       $('#upload_image_url').val('')
+      $(".image-show").find('img').remove()
+      $('.upload-section').css('display', 'block')
+      $("#editor-upload-image-confirm").hide()
       $("#editor-upload-image-modal").modal()
       $("#upload_image_url").on 'keyup', ->
         if $("#upload_image_url").val().length > 0
@@ -90,7 +93,6 @@ window.QEditor =
           $("#editor-upload-image-confirm").hide()
       QEditor.waitImageURL().then(->
         p = $("#upload-image-url").text() || $('#upload_image_url').val()
-        console.log "url is #{p}"
         $("#editor-upload-image-modal").modal('hide')
         return false if p.trim().length == 0
         console.log document.execCommand('insertimage', false, p)

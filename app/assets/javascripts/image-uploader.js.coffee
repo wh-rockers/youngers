@@ -133,7 +133,7 @@ editorUploadImage = ->
         FileUploaded: (up, file, info) ->
           name = $.parseJSON(info).key
           url = "http://startups.qiniudn.com/" + name
-          $('#upload-image-url').text(url)
+          $('#upload-image-url').text("#{url}?imageView2/1/w/600")
           $("#editor-upload-image-confirm").show()
           $(".img-show").html "<img src='" + url + "?imageView2/1/w/300'>"
           $(".loading-upload-image").hide()
