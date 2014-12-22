@@ -251,7 +251,7 @@ DEPENDENCIES
   qiniu
   quiet_assets
   rails (= 4.1.6)
-  rails-i18n
+  rails-i18n (= 4.0.3)
   rails_12factor
   rqrcode_png
   sass-rails (~> 4.0.3)
