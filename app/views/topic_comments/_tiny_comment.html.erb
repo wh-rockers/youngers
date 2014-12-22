@@ -3,7 +3,7 @@
     <div class="col-xs-1"><%= image_tag tiny_comment.user.pic('36') %></div>
     <div class="col-xs-11">
       <b><%= tiny_comment.user.name %></b>
-      <span>发表于 1分钟之前</span>
+      <span>发表于 <%= timeago(tiny_comment.created_at) %></span>
     </div>
   </div>
   <div class="row tiny-comment-section">

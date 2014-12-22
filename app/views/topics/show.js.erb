@@ -3,3 +3,4 @@ $("#topic-show").modal();
 $(".modal-backdrop").show();
 var shareContent = "<p>微信扫一扫， 分享到朋友圈</p><img src='<%= @qr %>' />"
 $('#weixin_share_topic').popover({placement: 'bottom', content: shareContent, html: true});
+$("abbr.timeago").timeago();

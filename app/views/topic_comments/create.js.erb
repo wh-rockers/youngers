@@ -5,3 +5,4 @@
   $("#comment-<%= @topic_comment.parent_id %>-tiny-comment-list").find('#new_topic_comment').remove();
   $("#comment-<%= @topic_comment.parent_id %>-tiny-comment-list").append("<%= j render 'topic_comments/tiny_comment', tiny_comment: @topic_comment %>");
 <% end %>
+$("abbr.timeago").timeago();

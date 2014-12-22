@@ -14,7 +14,10 @@
 //= require bootstrap-sprockets
 //= require bootstrap-material-design
 //= require jquery_ujs
+//= require jquery.timeago
 //= require plupload.min
 //= require qiniu.min
 //= require social-share-button
 //= require_tree .
+
+$("abbr.timeago").timeago();
