@@ -14,7 +14,6 @@
 //= require bootstrap-sprockets
 //= require bootstrap-material-design
 //= require jquery_ujs
-//= require turbolinks
 //= require plupload.min
 //= require qiniu.min
 //= require social-share-button
