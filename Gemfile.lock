@@ -76,7 +76,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    colorize (0.7.3)
+    colorize (0.6.0)
     columnize (0.8.9)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
@@ -198,7 +198,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sshkit (1.5.1)
-      colorize
+      colorize (= 0.6.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     sunzi (1.5.2)
