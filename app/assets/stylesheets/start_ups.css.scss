@@ -19,18 +19,15 @@
       }
     }
     .desc {
-      padding: 20px;
+      padding: 20px 20px 10px 20px;
+      height: 60px;
     }
-    .ups {
-      padding-right: 30px;
+    .creator {
       text-align: right;
-      .likes-count {
-        font-size: 16px;
-        margin-right: 10px;
-      }
-      .thumb-icon {
-        font-size: 24px;
-        vertical-align: middle;
+      margin: 10px 20px;
+      a {
+        text-decoration: none;
+        color: #aaa;
       }
     }
   }
@@ -47,10 +44,6 @@
     text-align: center;
     margin-top: 20px;
     font-weight: bold;
-    .create-start-up {
-      color: #FF5722;
-      font-size: 16px;
-    }
   }
 }
 @media (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) { 

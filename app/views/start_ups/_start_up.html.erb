@@ -1,21 +1,16 @@
 <div class="start_up">
 	<div class="row title">
 		<div class="col-xs-8 start-up-name">
-			<%= start_up.name %>
+			<%= link_to start_up.name, start_up.link || '#' %>
 		</div>
 		<div class="col-xs-2 start-up-logo">
 			<%= image_tag(start_up.logo_url, class: 'start-up-logo-image') %>
 		</div>
 	</div>
 	<div class="desc">
-		<%= start_up.desc %>
+		<%= truncate(start_up.desc, length: 46) %>
 	</div>
-	<div class="ups">
-		<span class="likes-count">
-			<%= start_up.likes_count %>
-		</span>
-		<span class="thumb-icon">
-			<i class="mdi-action-thumb-up"></i>
-		</span> 
+	<div class="creator">
+		<a href="#" class="avatar-show-info" data-content="<%= popover_user_info(start_up.user) %>" rel = 'popover'><%= image_tag start_up.user.pic('30') %>&nbsp;&nbsp;@<%= start_up.user.name %></a>
 	</div>
 </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :places
+
   resources :topic_comments do
     put :up, on: :member
   end

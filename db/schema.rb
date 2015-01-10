@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221044847) do
+ActiveRecord::Schema.define(version: 20150109163026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 20141221044847) do
   add_index "invitations", ["from_user_id"], name: "index_invitations_on_from_user_id", using: :btree
   add_index "invitations", ["to_user_id"], name: "index_invitations_on_to_user_id", using: :btree
 
+  create_table "places", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.boolean  "projector",  default: false
+    t.integer  "fit_types",  default: [],    array: true
+    t.string   "pictures",   default: [],    array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "remarks", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
@@ -81,6 +91,8 @@ ActiveRecord::Schema.define(version: 20141221044847) do
     t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "link"
+    t.integer  "user_id"
   end
 
   create_table "topic_comments", force: true do |t|

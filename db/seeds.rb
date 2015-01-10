@@ -14,3 +14,32 @@ if Industry.count == 0
 		{ name: '其他', abbr: '－' },
 		])
 end
+
+if StartUp.count.zero?
+	StartUp.create(
+		name: '光谷 Talk',
+	  link: 'startups.coffee',
+	  logo_url: 'http://startups.qiniudn.com/startups-coffee-logo.png',
+	  desc: '光谷线下交友，活动发布平台，致力于帮助光谷人找到志同道合的朋友交流分享',
+	  user_id: User.find_by_email('zilongji@gmail.com').id
+	  )
+end
+
+if Rails.env.development?
+	if StartUp.count == 1
+		StartUp.create(
+			name: '光谷说',
+	  	link: 'startups.coffee',
+	  	logo_url: 'http://startups.qiniudn.com/startups-coffee-logo.png',
+	  	desc: '光谷线下交友，活动发布平台,光谷线下交友，活动发布平台,光谷线下交友，活动发布平台,光谷线下交友，活动发布平台',
+	  	user_id: User.find_by_email('zilongji@gmail.com').id
+			)
+	end
+end
+#if Rails.env.development?
+	#if Place.count.zero?
+		#Place.create([
+			#{ name: '关谷书店咖啡吧', address: '光谷西班牙步行街美特斯邦威3楼', projector: true}
+			#])
+	#end
+#end
