@@ -14,6 +14,6 @@ class PersonalInfo
   end
 
   def friend_activities
-    PublicActivity::Activity.where("recipient_id = ? or owner_id = ?", user.friend_ids, user.friend_ids).where.not("recipient_id = ? or owner_id = ?", user.id, user.id)
+    PublicActivity::Activity.where("recipient_id in (?) or owner_id in (?)", user.friend_ids, user.friend_ids).where.not("recipient_id = ? or owner_id = ?", user.id, user.id)
   end
 end
