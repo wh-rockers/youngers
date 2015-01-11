@@ -1,2 +1,5 @@
 $(".generated_code").append("<%= j render 'invitation_codes/single_code', code: @code %>");
 $(".generate_code_section").html("<%= j render 'invitation_codes/generate_code_section', user: current_user %>");
+<% if @code.group_code %>
+  $("#new_invitation_code").remove();
+<% end %>

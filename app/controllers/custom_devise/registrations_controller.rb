@@ -8,7 +8,9 @@ class CustomDevise::RegistrationsController < Devise::RegistrationsController
 		@registration = User.new(permit_params)
 		if @registration.save
 			sign_in @registration
-			InvitationCode.find_by_code(params[:invitation_code]).update_attributes(used_by: @registration.id)
+			invitation_code = InvitationCode.find_by_code(params[:invitation_code])
+			invitation_code.used_by_ids += [@registration.id]
+			invitation_code.save
 		else
 			return false
 		end

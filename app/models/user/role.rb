@@ -11,6 +11,7 @@ class User
       end
     end
 
+    #website contributor
     def member?
       roles.include? 'member'
     end
