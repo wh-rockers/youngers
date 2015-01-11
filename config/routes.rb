@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   end
 
   root 'users#index'
-  resources :start_ups
+  resources :start_ups do 
+    put :like, on: :member
+  end
 
   get '/about' => 'static#about'
   get '/policies' => 'static#policies'

@@ -25,6 +25,17 @@ if StartUp.count.zero?
 	  )
 end
 
+unless StartUp.exists?(name: '程序员客栈')
+	StartUp.create(
+		name: '程序员客栈',
+		link: 'www.programmerinn.com',
+		logo_url: 'http://startups.qiniudn.com/programmerinn-logo.jpg',
+		desc: '极客自由工作者社区，用互联网思维做外包，程序员私活。 为程序员服务！', 
+		user_id: User.find_by_name('cho')
+		)
+end
+
+
 if Rails.env.development?
 	if StartUp.count == 1
 		StartUp.create(

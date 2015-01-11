@@ -23,11 +23,38 @@
       height: 60px;
     }
     .creator {
-      text-align: right;
-      margin: 10px 20px;
-      a {
+      margin: 10px;
+      .like {
+        display: inline-block;
+        width: 45%;
+        padding-left: 15px;
+        vertical-align: bottom;
+        a {
+          font-size: 30px;
+          color: #666;
+          text-decoration: none;
+          &:hover {
+            color: #DA552F;
+          }
+          &.voted {
+            color: #DA552F;
+          }
+        }
+        span {
+          font-size: 16px;
+          color: #666;
+        }
+      }
+      .avatar-show-info {
+        line-height: 42px;
+        display: inline-block;
+        width: 45%;
+        text-align: right;
         text-decoration: none;
-        color: #aaa;
+        color: #666;
+        img {
+          border-radius: 50%;
+        }
       }
     }
   }

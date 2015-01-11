@@ -9,7 +9,6 @@ avatarPopoverContact = ->
     $(".avatar-show-info").popover
       trigger: "hover"
       html: true
-      container: '.avatar-show-info'
       placement: "bottom"
       animation: false
     .on(

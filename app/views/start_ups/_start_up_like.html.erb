@@ -1,0 +1,16 @@
+<% if current_user %>
+  <% if start_up.like_ids.include? current_user.id %>
+    <%= link_to 'javascript:void(0);', class: 'voted' do %>
+      <i class="mdi-action-thumb-up"></i>
+    <% end %>
+  <% else %>
+    <%= link_to like_start_up_path(start_up), method: :put, remote: true do  %>
+      <i class="mdi-action-thumb-up"></i>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to user_session_path do %>
+    <i class="mdi-action-thumb-up"></i>
+  <% end %>
+<% end %>
+<span><%= start_up.likes_count %></span>

@@ -1,4 +1,4 @@
-<div class="start_up">
+<div class="start_up" id="start_up_<%= start_up.id %>">
 	<div class="row title">
 		<div class="col-xs-8 start-up-name">
 			<%= link_to start_up.name, start_up.link || '#' %>
@@ -11,6 +11,9 @@
 		<%= truncate(start_up.desc, length: 46) %>
 	</div>
 	<div class="creator">
+		<div class="like">
+			<%= render 'start_up_like', start_up: start_up %>
+		</div>
 		<a href="#" class="avatar-show-info" data-content="<%= popover_user_info(start_up.user) %>" rel = 'popover'><%= image_tag start_up.user.pic('30') %>&nbsp;&nbsp;@<%= start_up.user.name %></a>
 	</div>
 </div>
