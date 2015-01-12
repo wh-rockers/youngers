@@ -1,4 +1,10 @@
-<% unless user_signed_in? %>
+<% if user_signed_in? %>
+  <div class="panel panel-default">
+    <div class="panel-body" style='text-align: center;'>
+      邀请对方喝咖啡， 对方同意后， 将加入好友列表， 在好友列表中可查看对方联系方式
+    </div>
+  </div>
+<% else %>
   <div class="panel panel-default">
     <div class="panel-body welcome-user">
       <span>想和光谷朋友喝杯咖啡，认识一下，欢迎乐于分享的你</span>
