@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111020221) do
+ActiveRecord::Schema.define(version: 20150111162229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20150111020221) do
   create_table "start_ups", force: true do |t|
     t.string   "logo_url"
     t.string   "name"
-    t.integer  "likes_count"
+    t.integer  "likes_count", default: 0
     t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"

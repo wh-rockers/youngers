@@ -35,6 +35,16 @@ unless StartUp.exists?(name: '程序员客栈')
 		)
 end
 
+unless StartUp.exists?(name: '光谷社区')
+	StartUp.create(
+		name: '光谷社区',
+		link: 'http://www.guanggoo.com',
+		logo_url: 'http://startups.qiniudn.com/guanggoo-logo.png',
+		desc: '你的同城社交网络，随时随地关注身边事，简单、靠谱、有态度的高端交流分享社区', 
+		user_id: User.find_by_name('test1')
+		)
+end
+
 
 if Rails.env.development?
 	if StartUp.count == 1
