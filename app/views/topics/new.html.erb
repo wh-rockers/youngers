@@ -1,6 +1,29 @@
-<%= simple_form_for @topic do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
+<%= simple_form_for @topic, html: {class: 'well'} do |f| %>
+  <div class="personal">
+    <label>发起者</label>
+    <br>
+    <div class="radio radio-success">
+      <label>
+      <input id="topic_personal_true" name="topic[personal]"  type="radio" value="true" checked=''>
+        个人
+      </label>
+    </div>
+    <div class="radio radio-success">
+      <label>
+      <input id="topic_personal_true" name="topic[personal]"  type="radio" value="false">
+        组织
+      </label>
+    </div>
+  </div>
+  <%= f.input :title, label: '活动标题' %>
+  <div class="location">
+    <%= f.input :location, label: '活动地址' %>
+    <div id="topic-location-baidu-map"></div>
+  </div>
+  <%= f.input :start_time, label: '开始时间' %>
+  <%= f.input :end_time, label: '结束时间' %>
+  <%= f.input :attendee_number, label: '活动人数' %>
+  <%= f.input :content, label: '详细内容' %>
   <%= f.submit '发起活动', class: 'btn btn-info' %>
 <% end %>
 <%= render 'shared/editor_upload_image' %>

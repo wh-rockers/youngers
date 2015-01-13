@@ -28,3 +28,12 @@
     }
   }
 }
+
+@mixin require-abbr-color {
+  .required {
+    abbr[title] {
+      border-bottom: none;
+      color: rgb(230, 0, 18);
+    }
+  }
+}

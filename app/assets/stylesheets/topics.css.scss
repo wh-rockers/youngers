@@ -1,3 +1,4 @@
+@import 'shared';
 //topics index
 .topics-index {
   .new-topic-button {
@@ -64,11 +65,30 @@
 
 
 //new topic page
-.new_topic {
-  #topic_title {
-    width: 100%;
-    line-height: 28px;
+#new_topic {
+  @include require-abbr-color;
+  .personal {
     margin-bottom: 20px;
+    .radio {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  }
+  #topic_title, #topic_location {
+    width: 100%;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+  .location {
+    position: relative;
+    #topic-location-baidu-map {
+      visibility: hidden;
+      width: 80%;
+      height: 400px;
+      position: absolute;
+      z-index: 1;
+      top: 62px;
+    }
   }
 }
 

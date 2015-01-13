@@ -203,8 +203,6 @@ do ($=jQuery)->
       editor.change ->
         pobj = $(this);
         t = pobj.parent().find('.qeditor')
-        console.log '##########'
-        console.log pobj
         t.val(pobj.html())
     
       # watch pasite event, to remove unsafe html tag, attributes

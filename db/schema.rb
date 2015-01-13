@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111162229) do
+ActiveRecord::Schema.define(version: 20150112152815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,10 +115,16 @@ ActiveRecord::Schema.define(version: 20150111162229) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.integer  "supporters",           default: [], array: true
+    t.integer  "supporters",           default: [],    array: true
     t.integer  "up_count",             default: 0
-    t.integer  "wanna_join_users",     default: [], array: true
+    t.integer  "wanna_join_users",     default: [],    array: true
     t.integer  "topic_comments_count", default: 0
+    t.string   "location"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "attendee_number",      default: 10
+    t.string   "tags",                 default: [],    array: true
+    t.boolean  "personal",             default: false
   end
 
   add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
