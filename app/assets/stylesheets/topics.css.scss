@@ -84,10 +84,23 @@
     #topic-location-baidu-map {
       visibility: hidden;
       width: 80%;
-      height: 400px;
+      height: 450px;
       position: absolute;
       z-index: 1;
       top: 62px;
+    }
+  }
+  .time {
+    margin-bottom: 20px;
+    .time-inline {
+      width: 45%;
+      display: inline-block;
+      label {
+        display: block;
+      }
+      input {
+        padding-left: 15px;
+      }
     }
   }
 }

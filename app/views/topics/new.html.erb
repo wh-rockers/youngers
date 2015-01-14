@@ -20,8 +20,10 @@
     <%= f.input :location, label: '活动地址' %>
     <div id="topic-location-baidu-map"></div>
   </div>
-  <%= f.input :start_time, label: '开始时间' %>
-  <%= f.input :end_time, label: '结束时间' %>
+  <div class="time">
+    <%= f.input :start_time, label: '开始时间', wrapper_html: {class: 'time-inline'} %>
+    <%= f.input :end_time, label: '结束时间', wrapper_html: {class: 'time-inline'} %>
+  </div>
   <%= f.input :attendee_number, label: '活动人数' %>
   <%= f.input :content, label: '详细内容' %>
   <%= f.submit '发起活动', class: 'btn btn-info' %>
