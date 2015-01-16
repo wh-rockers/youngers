@@ -35,9 +35,17 @@
   }
   .qeditor_preview {
     height: 400px;
+    border-bottom: none;
+    &:focus {
+      height: 400px;
+      border-bottom: none;
+    }
   }
 }
 .qeditor_border {
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
   background:#FFF;
   padding-bottom:20px;
   text-align: center;

@@ -87,19 +87,54 @@
       height: 450px;
       position: absolute;
       z-index: 1;
-      top: 62px;
+      top: 30px;
     }
   }
   .time {
     margin-bottom: 20px;
-    .time-inline {
-      width: 45%;
-      display: inline-block;
-      label {
-        display: block;
+    .start_time {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      label { text-align: right; }
+      .time-wrapper {
+        display: inline-block;
+        &:nth-of-type(1) {
+          width: 40%;
+          margin-left: 33%;
+        }
       }
+    }
+    .end_time {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      label { text-align: left; }
+      .time-wrapper {
+        display: inline-block;
+        &:nth-of-type(1) {
+          width: 40%;
+          margin-left: 15%;
+        }
+      }
+    }
+    .time-inputs {
       input {
-        padding-left: 15px;
+        line-height: 30px;
+      }
+    }
+  }
+  .attendee_number {
+    margin-bottom: 40px;
+  }
+  .content {
+    .qeditor-border {
+      .qeditor_preview {
+        &:focus {
+          height: 400px;
+        }
       }
     }
   }

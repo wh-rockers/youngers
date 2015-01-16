@@ -18,6 +18,9 @@
 //= require plupload.min
 //= require qiniu.min
 //= require social-share-button
+//= require datepicker/picker
+//= require datepicker/picker.date
+//= require datepicker/picker.time
 //= require_tree .
 
 $("abbr.timeago").timeago();
