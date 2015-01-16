@@ -11,21 +11,26 @@
         </div>
         <div class="radio radio-success">
           <label>
-            <input id="topic_personal_true" name="topic[personal]"  type="radio" value="false">组织
+            <input id="topic_personal_false" name="topic[personal]"  type="radio" value="false">组织
           </label>
+        </div>
+        <div class="form-group organizer">
+          <div>
+            <%= f.text_field :organizer, class: 'form-control',  placeholder: '组织单位名称' %>
+          </div>
         </div>
       </div>
     </div>
     <div class="form-group title">
       <%= f.label :title, '活动标题', class: 'col-lg-2 control-label' %>
       <div class="col-lg-9">
-        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.text_field :title, class: 'form-control', required: true %>
       </div>
     </div>
     <div class="form-group location">
       <%= f.label :location, '活动地址', class: 'col-lg-2 control-label' %>
       <div class="col-lg-9">
-        <%= f.text_field :location, class: 'form-control' %>
+        <%= f.text_field :location, class: 'form-control', required: true %>
         <div id="topic-location-baidu-map"></div>
       </div>
     </div>
@@ -34,33 +39,33 @@
         <label class="control-label col-lg-4">开始时间</label>
         <br> <br>
         <div class="time-wrapper">
-          <%= text_field_tag :start_date, nil, class: 'form-control', placeholder: '选择日期'  %>
+          <%= text_field_tag :start_date, nil, class: 'form-control', placeholder: '选择日期', required: true  %>
         </div>
         <div class="time-wrapper">
-          <%= text_field_tag :start_time, nil, class: 'form-control', placeholder: '选择时间' %>
+          <%= text_field_tag :start_time, nil, class: 'form-control', placeholder: '选择时间', required: true %>
         </div>
       </div>
       <div class="form-group end_time col-lg-6">
         <label class="control-label col-lg-4">结束时间</label>
         <br><br>
         <div class="time-wrapper">
-          <%= text_field_tag :end_date, nil, class: 'form-control  col-lg-8', placeholder: '选择日期' %>
+          <%= text_field_tag :end_date, nil, class: 'form-control  col-lg-8', placeholder: '选择日期', required: true %>
         </div>
         <div class="time-wrapper">
-          <%= text_field_tag :end_time, nil, class: 'form-control col-lg-3', placeholder: '选择时间' %>
+          <%= text_field_tag :end_time, nil, class: 'form-control col-lg-3', placeholder: '选择时间', required: true %>
         </div>
       </div>
     </div>
     <div class="form-group attendee_number">
       <%= f.label :attendee_number, "活动人数", class: 'col-lg-2 control-label' %>
       <div class="col-lg-9">
-        <%= f.text_field :attendee_number, class: 'form-control' %>
+        <%= f.text_field :attendee_number, class: 'form-control', required: true %>
       </div>
     </div>
     <div class="form-group content">
       <%= f.label :content, "详细内容", class: 'col-lg-2 control-label' %>
       <div class="col-lg-9">
-        <%= f.text_field :content, class: 'form-control' %>
+        <%= f.text_field :content, class: 'form-control', required: true %>
       </div>
     </div>
     <div class="form-group">

@@ -14,6 +14,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.build(permit_params)
+    binding.pry
     if @topic.save
       redirect_to @topic and return
     else
@@ -53,6 +54,8 @@ class TopicsController < ApplicationController
 
   private
   def permit_params
-    params.require(:topic).permit(:title, :content)
+    params[:topic][:start_time] = "#{params[:start_date_submit]} #{params[:start_time_submit]}:00"
+    params[:topic][:end_time] = "#{params[:end_date_submit]} #{params[:end_time_submit]}:00"
+    params.require(:topic).permit(:personal, :organizer, :title, :attendee_number,:content, :start_time, :end_time, :location)
   end
 end

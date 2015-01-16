@@ -41,14 +41,20 @@
     }
     .title {
       @media (min-width: 768px) {
+        p {
+          color: #bbb;
+        }
         height: 50px;
-        padding-top: 10px;
+        padding-top: 0px;
         font-size: 14px;
         color: #666;
+        .topic-title {
+          color: #666;
+        }
       }
       @media (max-width: 768px) {
         height: 50px;
-        padding-top: 10px;
+        padding-top: 0px;
         font-size: 14px;
         color: #666;
       }
@@ -72,6 +78,11 @@
     .radio {
       display: inline-block;
       margin-right: 20px;
+    }
+    .organizer {
+      display: inline-block;
+      margin-left: 20px;
+      display: none;
     }
   }
   #topic_title, #topic_location {

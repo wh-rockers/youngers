@@ -4,6 +4,16 @@ showNewTopicEditor = ->
 
 showNewTopicEditor()
 
+newTopic = ->
+  $('input[name="topic[personal]"]').on 'click', ->
+    console.log 'here'
+    if document.getElementById('topic_personal_false').checked
+      $(".organizer").css('display', 'inline-block')
+    else
+      $(".organizer").hide()
+
+newTopic()
+
 avatarPopoverContact = ->
   if $(".avatar-show-info").length > 0
     $(".avatar-show-info").popover

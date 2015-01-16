@@ -5,7 +5,7 @@ datePicker = ->
     today: '今天',
     clear: '清除选择',
     close: '',
-    formatSubmit: 'yyyy/mm/dd'
+    formatSubmit: 'yyyy-mm-dd'
   }
   timeOptions = {
     clear: '清除选择',
