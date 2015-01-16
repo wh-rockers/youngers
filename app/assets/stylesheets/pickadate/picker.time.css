@@ -19,7 +19,7 @@
   margin-bottom: -1px;
   position: relative;
   background: #ffffff;
-  padding: .75em 1.25em;
+  padding: .8em 1.25em;
 }
 @media (min-height: 46.75em) {
   .picker__list-item {
