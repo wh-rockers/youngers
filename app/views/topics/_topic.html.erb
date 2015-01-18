@@ -20,7 +20,14 @@
     </div>
     <%= link_to topic_path(topic), remote: true do  %>
       <div class="col-xs-9 title">
-        <p><%= "#{topic.start_time.to_s(:short)} - #{topic.end_time.to_s(:short)}    #{topic.location}" %></p>
+        <p>
+          <span><%= topic.time %></span>
+          <span><%= "活动地址：#{truncate(topic.location, length: 16)}" %></span>
+          <span>活动人数： <%= topic.attendee_number %></span>
+          <% unless topic.personal %>
+            <span>组织单位：<%= topic.organizer %></span>
+          <% end %>
+        </p>
         <p class="topic-title"> <%= truncate(topic.title, length: 150) %></p>
       </div>
       <div class="col-xs-2 creator">

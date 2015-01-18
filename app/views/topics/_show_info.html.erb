@@ -1,0 +1,17 @@
+<div class="info row">
+  <div class="col-xs-8" id="topic-show-baidu-map"></div>
+  <div class="info-words col-xs-4">
+    <% unless @topic.personal? %>
+      <p class="organizer">主办方：<b><%= @topic.organizer %></b></p>
+    <% end %>
+    <p class="time">
+      活动时间：<b><%= @topic.time %></b>
+    </p>
+    <p class="address">
+      活动地址： <b><%= @topic.location %></b>
+    </p>
+    <p class="attendee_number">
+      活动人数： <b><%= @topic.attendee_number %>人</b>
+    </p>
+  </div>
+</div>

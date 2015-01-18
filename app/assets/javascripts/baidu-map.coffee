@@ -19,4 +19,6 @@ topicLocationMap = ->
     address = "光谷" if address.length == 0
     local.search "#{address}"
 
-topicLocationMap()
+if $("#topic-location-baidu-map").length > 0
+  topicLocationMap()
+

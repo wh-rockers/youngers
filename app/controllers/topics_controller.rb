@@ -3,6 +3,10 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
 
+  def edit
+    @topic = Topic.find(params[:id])
+  end
+
   def show
     @topic = Topic.find(params[:id])
     @qr = RQRCode::QRCode.new("http://startups.coffee/topics/#{params[:id]}").to_img.resize(120, 120).to_data_url
@@ -14,11 +18,19 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.build(permit_params)
-    binding.pry
     if @topic.save
       redirect_to @topic and return
     else
       render action: 'new'
+    end
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    if @topic.update_attributes(permit_params)
+      redirect_to topics_path and return
+    else
+      render action: 'edit'
     end
   end
   

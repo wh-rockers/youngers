@@ -1,4 +1,4 @@
-<%= form_for @topic, html: {class: 'form-horizontal well'} do |f| %>
+<%= form_for @topic, html: {class: 'form-horizontal well topic-form'} do |f| %>
   <fieldset>
     <legend>发起活动</legend>
     <div class="form-group personal">
@@ -39,20 +39,20 @@
         <label class="control-label col-lg-4">开始时间</label>
         <br> <br>
         <div class="time-wrapper">
-          <%= text_field_tag :start_date, nil, class: 'form-control', placeholder: '选择日期', required: true  %>
+          <%= text_field_tag :start_date, nil, class: 'form-control', placeholder: '选择日期', required: true, value: "#{@topic.start_time.try(:to_s, :date)}"  %>
         </div>
         <div class="time-wrapper">
-          <%= text_field_tag :start_time, nil, class: 'form-control', placeholder: '选择时间', required: true %>
+          <%= text_field_tag :start_time, nil, class: 'form-control', placeholder: '选择时间', required: true, value: "#{@topic.start_time.try(:to_s, :time)}" %>
         </div>
       </div>
       <div class="form-group end_time col-lg-6">
         <label class="control-label col-lg-4">结束时间</label>
         <br><br>
         <div class="time-wrapper">
-          <%= text_field_tag :end_date, nil, class: 'form-control  col-lg-8', placeholder: '选择日期', required: true %>
+          <%= text_field_tag :end_date, nil, class: 'form-control  col-lg-8', placeholder: '选择日期', required: true, value: "#{@topic.end_time.try(:to_s, :date)}"  %>
         </div>
         <div class="time-wrapper">
-          <%= text_field_tag :end_time, nil, class: 'form-control col-lg-3', placeholder: '选择时间', required: true %>
+          <%= text_field_tag :end_time, nil, class: 'form-control col-lg-3', placeholder: '选择时间', required: true, value: "#{@topic.end_time.try(:to_s, :time)}" %>
         </div>
       </div>
     </div>

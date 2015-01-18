@@ -1,6 +1,21 @@
 $("#topic-show").find('.modal-content').html("<%= j render 'show_modal_content' %>");
 $("#topic-show").modal();
 $(".modal-backdrop").show();
+if(window.local != undefined) {
+  delete window.local;
+  delete map;
+};
+var map = new BMap.Map("topic-show-baidu-map");
+map.enableScrollWheelZoom();
+map.addControl(new BMap.NavigationControl());
+window.local = new BMap.LocalSearch("武汉市", {
+  renderOptions: {
+    map: map,
+    selectFirstResult: false,
+  },
+  pageCapacity: 1
+});
+window.local.search("<%= @topic.location %>");
 var shareContent = "<p>微信扫一扫， 分享到朋友圈</p><img src='<%= @qr %>' />"
 $('#weixin_share_topic').popover({placement: 'bottom', content: shareContent, html: true});
 $("abbr.timeago").timeago();

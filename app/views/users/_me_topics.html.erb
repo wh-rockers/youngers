@@ -1,0 +1,8 @@
+<p class="title">我发布的活动</p>
+<div class="topic-list">
+  <% current_user.topics.each do |topic| %>
+    <div class="topic">
+    <%= topic.title %>&nbsp;&nbsp;发表于<%= timeago(topic.created_at) %>&nbsp;&nbsp;<%= link_to "编辑", edit_topic_path(topic) %>
+    </div>
+  <% end %>
+</div>

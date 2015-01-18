@@ -1,5 +1,6 @@
 <div class="topic-show panel panel-default">
   <%= render 'show_top' %>
+  <%= render 'show_info' %>
   <div class="topic-content">
     <%= sanitize(@topic.content ,:tags => %w(strong b i u strike ol ul li address blockquote pre code br div p img), :attributes => %w(src)) %>
   </div>
