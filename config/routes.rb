@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :weixin do
+    resources :messages, only: [:index] do 
+      collection do 
+        match 'receive' => 'messages#receive', via: [:get, :post]
+      end
+    end
+  end
+
   resources :places
 
   resources :topic_comments do
