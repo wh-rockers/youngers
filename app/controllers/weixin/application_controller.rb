@@ -1,5 +1,5 @@
 class Weixin::ApplicationController < ApplicationController
-  TOKEN = '1123'
+  TOKEN = 'startupscoffee2015'
   before_action :authentication
 
   private
