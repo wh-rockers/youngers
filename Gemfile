@@ -21,6 +21,8 @@ gem 'rails-i18n','4.0.3'
 gem 'unicorn-worker-killer'
 gem 'unicorn'
 gem 'social-share-button', git: 'git@github.com:apprentice1988/social-share-button.git'
+gem 'memcached'
+gem 'dalli'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -37,8 +39,4 @@ group :development, :test do
   gem 'minitest-rails'
   gem 'fabrication'
   gem 'byebug'
-end
-
-group :production do
-  gem 'rails_12factor'
 end
