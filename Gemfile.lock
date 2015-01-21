@@ -128,6 +128,8 @@ GEM
       activerecord (>= 3.0)
       i18n (>= 0.5.0)
       railties (>= 3.0.0)
+    puma (2.10.2)
+      rack (>= 1.1, < 2.0)
     qiniu (6.3.2)
       json (~> 1.7)
       mime-types (~> 1.19)
@@ -247,6 +249,7 @@ DEPENDENCIES
   pg
   pry-rails
   public_activity
+  puma
   qiniu
   quiet_assets
   rails (= 4.1.6)

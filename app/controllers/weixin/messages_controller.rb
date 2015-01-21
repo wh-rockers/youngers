@@ -5,10 +5,8 @@ class Weixin::MessagesController < Weixin::ApplicationController
 
   def receive
     if request.post?
-      puts request
       render text: 'ok'
     else
-      puts request
       render text: params[:echostr]
     end
   end

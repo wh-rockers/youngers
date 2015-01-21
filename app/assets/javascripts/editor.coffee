@@ -95,7 +95,6 @@ window.QEditor =
         p = $("#upload-image-url").text() || $('#upload_image_url').val()
         $("#editor-upload-image-modal").modal('hide')
         return false if p.trim().length == 0
-        console.log document.execCommand('insertimage', false, p)
         editor.change()
         false
       )

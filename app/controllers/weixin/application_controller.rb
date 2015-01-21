@@ -1,6 +1,7 @@
 class Weixin::ApplicationController < ApplicationController
   TOKEN = 'startupscoffee2015'
   before_action :authentication
+  skip_before_filter :verify_authenticity_token
 
   private
 

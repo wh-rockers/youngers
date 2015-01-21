@@ -23,6 +23,7 @@ gem 'unicorn'
 gem 'social-share-button', git: 'git@github.com:apprentice1988/social-share-button.git'
 gem 'memcached'
 gem 'dalli'
+gem 'puma'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
