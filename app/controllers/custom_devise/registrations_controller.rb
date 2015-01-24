@@ -22,6 +22,7 @@ class CustomDevise::RegistrationsController < Devise::RegistrationsController
 			if @registration.update_attributes(permit_params)
 				if @registration.registration_ongoing?
 					@registration.registration_finished!
+					UserMail.confirm_email(@registration).deliver
 					format.js
 				else
 					sign_in @registration

@@ -1,0 +1,3 @@
+<p>你好， <%= @user.name %>, 欢迎加入光谷客！</p>
+<p>你可以通过下面的链接验证账户邮箱：</p>
+<p><%= link_to "验证链接",  user_confirmation_url(confirmation_token: @user.confirmation_token) %></p>

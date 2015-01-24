@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :topic_comments do
     put :up, on: :member
   end
-  
+
   resources :topics do 
     put :up, on: :member
     put :wanna_join, on: :member
@@ -27,7 +27,8 @@ Rails.application.routes.draw do
     put '/update_registration/:registration_id' => 'custom_devise/registrations#update', :as => :update_user_registration
   end
   devise_for :users, 
-             :controllers => { :registrations => "custom_devise/registrations"}
+             :controllers => { :registrations => "custom_devise/registrations", :confirmations => "custom_devise/confirmations"}
+  post "/resend_confirmation_email" => "custom_devise#resend_confirmation_email", as: :resend_confirmation_email
   resources :users do 
     get :uptoken, on: :collection
     get :me, on: :collection

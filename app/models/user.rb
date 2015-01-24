@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   include User::Role
   scope :members, -> { where("'member' = ANY (roles)") }
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name, :email, :avatar
   validates_presence_of :corp, :position, :skill, :industry_id, :if => lambda { self.registration_state != 'registration_ongoing' }
@@ -57,6 +57,11 @@ class User < ActiveRecord::Base
     else
       "#{avatar}?imageView2/1/w/70/h/70"
     end
+  end
+
+  protected
+  def confirmation_required?
+    false
   end
 
 end

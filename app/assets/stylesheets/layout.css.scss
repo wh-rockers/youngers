@@ -1,4 +1,17 @@
 body {
+	.navbar {
+		.navbar-brand {
+			background-image: url(/assets/reverse-logo.png);
+			background-size: 45px;
+			background-repeat: no-repeat;
+			padding-left: 45px;
+			margin-top: 10px;
+			margin-bottom: -10px;
+			padding-top: 5px;
+			margin-left: 10px;
+			font-size: 20px;
+		}
+	}
 	margin: 0;
 	.float-nav-image {
 		background-image: image-url('top-wuhan-nav.png');

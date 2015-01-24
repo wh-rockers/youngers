@@ -1,0 +1,4 @@
+你好， <%= @user.name %>, 欢迎加入光谷客！你可以通过下面的链接验证账户邮箱：
+<%= user_confirmation_url(confirmation_token: @user.confirmation_token) %>, 复制链接地址到浏览器地址栏打开。
+
+谢谢

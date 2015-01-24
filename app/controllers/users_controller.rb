@@ -64,4 +64,8 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:skill, :desc, :corp, :position, :name, :industry_id, :avatar, :weixin_number, :phone_number, :qq_number)
     end
+
+    def resend_email_params
+      params.permit(:resend_email)
+    end
 end
