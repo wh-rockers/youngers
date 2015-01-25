@@ -78,7 +78,6 @@ GEM
     coffee-script-source (1.8.0)
     colorize (0.6.0)
     columnize (0.8.9)
-    dalli (2.7.2)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.4.1)
@@ -107,7 +106,6 @@ GEM
     maildown (1.0.2)
       kramdown
       rails (>= 4.0.0)
-    memcached (1.8.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.4.3)
@@ -243,13 +241,11 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv (~> 2.0)
   coffee-rails (~> 4.0.0)
-  dalli
   devise
   fabrication
   jbuilder (~> 2.0)
   jquery-rails
   maildown
-  memcached
   minitest-rails
   pg
   pry-rails

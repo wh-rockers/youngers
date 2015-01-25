@@ -20,11 +20,11 @@ module Weixin
       @app_secret = ENV['WEIXIN_SECRET']
     end
 
-    def token
-      token = Rails.cache.fetch('weixin_assess_token', exipres_in: 110.minutes) do 
-        JSON.load(token_url.open)['access_token']
-      end
-    end
+    #def token
+      #token = Rails.cache.fetch('weixin_assess_token', exipres_in: 110.minutes) do 
+        #JSON.load(token_url.open)['access_token']
+      #end
+    #end
 
     private
 
