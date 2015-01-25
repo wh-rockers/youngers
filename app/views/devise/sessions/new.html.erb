@@ -6,14 +6,14 @@
   	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
   		<fieldset>
   			<div class="form-group">
-	      	<%= f.label :email, 'Email', class: 'col-lg-2 control-label' %>
+	      	<%= f.label :email, '电子邮箱', class: 'col-lg-2 control-label' %>
 	        <div class="col-lg-10">
 	        	<%= f.email_field :email, required: true,  class: 'form-control' %>
 	        </div>
 	      </div>
 	      <div class="form-group">
 	      	<%= f.label :password, '密码', class: 'col-lg-2 control-label' %>
-	        <div class="col-lg-10">
+	        <div class="col-lg-6">
 	        	<%= f.password_field :password, required: true, placeholder: '最少六个字符',  class: 'form-control'  %>
 	        	<div class="checkbox" id='remeber_me_check'>
               <label>
@@ -21,6 +21,7 @@
               </label>
             </div>
 	        </div>
+          <div class="col-lg-4" style='padding-top: 8px;'><%= link_to "忘记密码？", new_user_password_path %></div>
 	      </div>
 	      <div class="form-group">
 	        <div class="col-lg-10 col-lg-offset-2">

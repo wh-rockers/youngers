@@ -1,15 +1,22 @@
-<h2>Forgot your password?</h2>
+<div class="well">
+  <h2 style="margin-bottom: 20px;">重置密码</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-horizontal' }) do |f| %>
+    <%= devise_error_messages! %>
+  
+    <div class="form-group">
+      <%= f.label :email, 'Email', class: 'col-lg-2 control-label' %>
+      <div class="col-lg-4">
+        <%= f.email_field :email, required: true,  class: 'form-control' %>
+      </div>
+      <div class="col-lg-2">
+        <%= f.submit '确认提交', class: 'btn btn-primary'  %>
+      </div>
+    </div>
+  <% end %>
+  <!--
+    <div class="col-lg-offset-2">
+      <%#= render "devise/shared/links" %>
+    </div>
+  -->
+</div>

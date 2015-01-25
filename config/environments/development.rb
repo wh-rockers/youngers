@@ -31,7 +31,7 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-  config.action_mailer.default_url_options = { host: 'startups.coffee' }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.mandrillapp.com',
