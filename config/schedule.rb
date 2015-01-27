@@ -13,8 +13,8 @@
 #   rake "some:great:rake:task"
 # end
 #
-every 1.day, :at => '0:00 am' do
-  rake 'db:update_remarks_score'
-end
+#every 1.day, :at => '0:00 am' do
+  #rake 'db:update_remarks_score'
+#end
 
 # Learn more: http://github.com/javan/whenever

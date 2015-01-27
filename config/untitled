@@ -2,7 +2,6 @@ require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
-# require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -10,22 +9,25 @@ require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, '120.27.44.131'
-set :deploy_to, '/home/deploy/www/ggk'
-set :repository, 'git@github.com:apprentice1988/youngers.git'
-set :branch, 'master'
-set :rails_env, 'production'
-set :user, 'deploy'
+# prod_domain, staging_domain
+if ENV['on'] == 'live'
+  set :rails_env, 'production'
+  # set :domain, '54.183.33.162'
+else
+  set :rails_env, 'staging'
+  set :domain, '54.183.16.204'
+end
 
-# For system-wide RVM install.
-#   set :rvm_path, '/usr/local/rvm/bin/rvm'
+set :deploy_to, '/home/ubuntu/www/bole_api'
+set :repository, 'git@github.com:pathsource/bole_api.git'
+set :branch, ENV['branch'] || 'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
 set :shared_paths, ['config/database.yml', 'log', 'tmp']
 
 # Optional settings:
-#   set :user, 'foobar'    # Username in the server to SSH to.
+set :user, 'ubuntu'    # Username in the server to SSH to.
 #   set :port, '30000'     # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
 
@@ -50,6 +52,9 @@ task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/config"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/config"]
 
+  #queue! %[mkdir -p "#{deploy_to}/#{shared_path}/tmp"]
+  #queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/tmp"]
+
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml'."]
 end
@@ -68,9 +73,15 @@ task :deploy => :environment do
 
     to :launch do
       queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
-      queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
+      queue! "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
+      #queue! %[whenever --update-crontab -s 'environment=#{rails_env}']
     end
   end
+end
+
+desc "Init redis data, should only did once"
+task :init_redis_data do
+  queue! "bundle exec rake create_redis_area_data"
 end
 
 desc "Run rake with mina, ex. mina task['test']"
@@ -104,4 +115,3 @@ end
 #  - http://nadarei.co/mina/tasks
 #  - http://nadarei.co/mina/settings
 #  - http://nadarei.co/mina/helpers
-
