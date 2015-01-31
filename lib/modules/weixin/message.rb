@@ -1,0 +1,3 @@
+class Weixin::Message
+  
+end
