@@ -7,7 +7,7 @@ GIT
       sass-rails
 
 GEM
-  remote: https://rubygems.org/
+  remote: https://ruby.taobao.org/
   specs:
     actionmailer (4.1.6)
       actionpack (= 4.1.6)
@@ -64,6 +64,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     columnize (0.8.9)
+    dalli (2.7.2)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.4.1)
@@ -91,6 +92,7 @@ GEM
     maildown (1.0.2)
       kramdown
       rails (>= 4.0.0)
+    memcached (1.8.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     mina (0.3.1)
@@ -206,11 +208,13 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.0.0)
+  dalli
   devise
   fabrication
   jbuilder (~> 2.0)
   jquery-rails
   maildown
+  memcached
   mina
   minitest-rails
   pg
@@ -220,6 +224,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.6)
   rails-i18n (= 4.0.3)
+  rest-client
   rqrcode_png
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

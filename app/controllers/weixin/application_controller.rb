@@ -9,6 +9,6 @@ class Weixin::ApplicationController < ApplicationController
     token = TOKEN
     str = [params[:timestamp].to_s, token, params[:nonce].to_s].sort.join
     sha = Digest::SHA1.hexdigest(str)
-    sha = params[:signature]
+    sha == params[:signature]
   end
 end

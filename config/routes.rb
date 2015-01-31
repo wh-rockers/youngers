@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     put '/update_registration/:registration_id' => 'custom_devise/registrations#update', :as => :update_user_registration
   end
   devise_for :users, 
-             :controllers => { :registrations => "custom_devise/registrations", :confirmations => "custom_devise/confirmations"}
+             :controllers => { :registrations => "custom_devise/registrations", :confirmations => "custom_devise/confirmations", :sessions => "custom_devise/sessions"}
   post "/resend_confirmation_email" => "custom_devise#resend_confirmation_email", as: :resend_confirmation_email
   resources :users do 
     get :uptoken, on: :collection
