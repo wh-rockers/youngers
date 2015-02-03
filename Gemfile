@@ -26,6 +26,8 @@ gem 'rest-client'
 gem 'faye-rails'
 gem 'momentjs-rails'
 gem 'thin'
+gem 'exception_notification'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

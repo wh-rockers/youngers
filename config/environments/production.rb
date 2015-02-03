@@ -71,6 +71,15 @@ Rails.application.configure do
     :domain         => 'startups.coffee',
     :enable_starttls_auto => true
   }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[光谷客 有错误] ",
+    :sender_address => %{"notifier" <zilongji@gmail.com>},
+    :exception_recipients => %w{zilongjiweixin@gmail.com}
+  }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true

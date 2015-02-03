@@ -90,6 +90,9 @@ GEM
       eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
     eventmachine (1.0.4)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.2.2)
     fabrication (2.11.3)
     faye (1.0.3)
@@ -253,6 +256,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dalli
   devise
+  exception_notification
   fabrication
   faye-rails
   faye-redis
