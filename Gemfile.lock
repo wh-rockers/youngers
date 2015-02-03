@@ -6,8 +6,16 @@ GIT
       coffee-rails
       sass-rails
 
+GIT
+  remote: https://github.com/apprentice1988/faye-rails.git
+  revision: b422dcceae2d5c34c5c1fd62c6b33d386668ae7b
+  specs:
+    faye-rails (2.0.0)
+      eventmachine (~> 1.0.0)
+      faye (~> 1.0.1)
+
 GEM
-  remote: https://rubygems.org/
+  remote: https://ruby.taobao.org/
   specs:
     actionmailer (4.1.6)
       actionpack (= 4.1.6)
@@ -103,9 +111,6 @@ GEM
       multi_json (>= 1.0.0)
       rack (>= 1.0.0)
       websocket-driver (>= 0.3.0)
-    faye-rails (2.0.0)
-      eventmachine (~> 1.0.0)
-      faye (~> 1.0.1)
     faye-redis (0.2.0)
       em-hiredis (>= 0.2.0)
       eventmachine (>= 0.12.0)
@@ -258,7 +263,7 @@ DEPENDENCIES
   devise
   exception_notification
   fabrication
-  faye-rails
+  faye-rails!
   faye-redis
   jbuilder (~> 2.0)
   jquery-rails
