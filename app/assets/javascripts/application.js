@@ -21,6 +21,8 @@
 //= require datepicker/picker
 //= require datepicker/picker.date
 //= require datepicker/picker.time
+//= require moment
+//= require faye
 //= require_tree .
 
 $("abbr.timeago").timeago();

@@ -1,5 +1,5 @@
-source 'https://ruby.taobao.org'
-#source 'https://rubygems.org'
+#source 'https://ruby.taobao.org'
+source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -23,10 +23,13 @@ gem 'memcached'
 gem 'dalli'
 gem 'maildown'
 gem 'rest-client'
+gem 'faye-rails'
+gem 'momentjs-rails'
+gem 'thin'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'spring'
+  #gem 'spring'
   gem 'mina'
 end
 
@@ -37,4 +40,8 @@ group :development, :test do
   gem 'minitest-rails'
   gem 'fabrication'
   gem 'byebug'
+end
+
+group :production do
+  gem 'faye-redis'
 end
