@@ -29,6 +29,18 @@
   }
 }
 
+.copyright-bottom {
+  margin-bottom: 20px;
+  text-align: center;
+  span:first-child {
+    margin-right: 30px;
+    color: rgb(136, 136, 136);
+  }
+  a {
+    color: #888;
+  }
+}
+
 @mixin require-abbr-color {
   .required {
     abbr[title] {
