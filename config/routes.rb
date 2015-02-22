@@ -6,6 +6,8 @@ Rails.application.routes.draw do
         match 'receive' => 'messages#receive', via: [:get, :post]
       end
     end
+    resources :topics
+    resources :users, only: :index
   end
 
   resources :places

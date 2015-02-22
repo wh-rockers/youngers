@@ -1,9 +1,18 @@
+require 'CGI'
+require 'open-uri'
 class Weixin::ApplicationController < ApplicationController
   TOKEN = 'startupscoffee2015'
-  before_action :authentication
-  skip_before_filter :verify_authenticity_token
+  layout 'weixin'
 
   private
+
+  def get_open_id_via_code(code)
+    url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=#{ENV['WEIXIN_ID']}&secret=#{ENV['WEIXIN_SECRET']}&code=#{code}&grant_type=authorization_code"
+    puts = '================='
+    p url
+    json = JSON.load(open url)
+    json.fetch('openid')
+  end
 
   def authentication
     token = TOKEN

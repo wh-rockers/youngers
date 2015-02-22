@@ -1,0 +1,74 @@
+<div class="user" id="user-<%= user.id %>">
+  <% if mobile_device? %>
+    <%= link_to user_path(user) do %>
+      <div class="personal-brief">
+        <div class="row title">
+          <div class="col-xs-4 user-avatar">
+            <%= image_tag user.pic, class: 'user-avatar-section' %>
+          </div>
+          <div class="col-xs-8 user-info">
+            <div class="name row">
+              <div class="col-xs-2 user-industry">
+                <%= user.industry.abbr %>
+              </div>
+              <div class="col-xs-10 user-name">
+                <%= user.name %>
+              </div>
+            </div>
+            <div class="work">
+              <span><%= user.corp %></span>
+              <span><%= user.position %></span>
+            </div>
+          </div>
+        </div>
+        <div class="user-skill">
+          技能： <%= user.skill %>
+        </div>
+        <div class="user-desc">
+          个人介绍： <%= user.desc %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to user_path(user), remote: true do %>
+      <div class="personal-brief">
+        <div class="row title">
+          <div class="col-xs-4 user-avatar">
+            <%= image_tag user.pic, class: 'user-avatar-section' %>
+          </div>
+          <div class="col-xs-8 user-info">
+            <div class="name row">
+              <div class="col-xs-2 user-industry">
+                <%= user.industry.abbr %>
+              </div>
+              <div class="col-xs-10 user-name">
+                <%= user.name %>
+              </div>
+            </div>
+            <div class="work">
+              <span><%= user.corp %></span>
+              <span><%= user.position %></span>
+            </div>
+          </div>
+        </div>
+        <div class="user-skill row">
+          <div class="col-xs-2">技能:</div>
+          <div class="col-xs-10"><%= truncate(user.skill, length: 35) %></div>
+        </div>
+        <div class="user-desc row">
+          <div class="col-xs-2">简介:</div>
+          <div class="col-xs-10"><%= truncate(user.desc, length: 65) %></div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="invitation row">
+    <div class="col-xs-4 comments">
+      
+    </div>
+    <div class="col-xs-6 col-xs-offset-2 invitation-action">
+      <%= invitation_link(current_user, user) %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,28 @@
+<div class="users-list">
+  <%= render 'users/sign_section' %>
+  <div class="row users-list-section">
+    <% @users.each do |user|  %>
+      <div class="col-md-4">
+        <%= render 'user', user: user %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="modal" id='invitation-modal'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">发起邀请</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id='user-show'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
