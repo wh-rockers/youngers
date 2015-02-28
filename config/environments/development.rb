@@ -9,8 +9,8 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  config.middleware.delete Rack::Lock
-  config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
+  # config.middleware.delete Rack::Lock
+  # config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

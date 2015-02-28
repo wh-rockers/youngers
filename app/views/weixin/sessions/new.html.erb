@@ -1,0 +1,34 @@
+<div class="row weixin_regis_tabs">
+  <%= link_to '登录', '#', class: 'btn btn-default btn-raised col-xs-5', style: "margin-left: 8%;" %>
+  <%= link_to '注册', new_weixin_registration_path(open_id: @open_id), class: 'btn btn-primary btn-raised col-xs-5' %>
+</div>
+<div class="alert alert-dismissable alert-warning">
+    <h4>欢迎回来！</h4>
+    <p>登陆账号即可完成微信账号的绑定， 以后无须再次登陆。</p>
+</div>
+<div class="well">
+  <%= form_for(resource, as: resource_name, url: weixin_sessions_path, html: { class: 'form-horizontal' }) do |f| %>
+    <fieldset>
+      <%= hidden_field_tag 'open_id',  @open_id %>
+      <div class="form-group">
+        <%= f.label :email, '电子邮箱', class: 'col-lg-2 control-label' %>
+        <div class="col-lg-10">
+          <%= f.email_field :email, required: true,  class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, '密码', class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+          <%= f.password_field :password, required: true, placeholder: '最少六个字符',  class: 'form-control'  %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <%= f.submit '确认提交', class: 'btn btn-primary'  %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
+
+<%#= render "devise/shared/links" %>

@@ -1,0 +1,23 @@
+<div class="row weixin_regis_tabs">
+  <%= link_to '登录', new_weixin_session_path(open_id: params[:open_id]), class: 'btn btn-primary btn-raised col-xs-5', style: 'margin-left: 8%;' %>
+  <%= link_to '注册', '#', class: 'btn btn-default btn-raised col-xs-5' %>
+</div>
+<div class="panel panel-primary registration-table">
+  <div class="panel-heading">
+    <h3 class="panel-title" style="text-align: center;">欢迎您加入</h3>
+  </div>
+  <div class="panel-body">
+    <div id="carousel-example-generic" data-interval="false" class="carousel slide">
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <%= render 'form_one' %>
+        </div>
+        <div class="item step-2">
+        </div>
+        <div class="item step-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

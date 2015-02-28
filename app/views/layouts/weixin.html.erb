@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=A26d40938cf2e46df08932dc371ca998"></script>
 </head>
 <body>
   <div class="container weixin">
     <%= yield %>
   </div>
-  <%= render 'layouts/copyright' %>
   <%= javascript_include_tag 'application' %>
 </body>
 </html>

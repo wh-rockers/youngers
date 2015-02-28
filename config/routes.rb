@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :weixin do
+    devise_scope :user do
+      resources :sessions
+      resources :registrations
+    end
     resources :messages, only: [:index] do 
       collection do 
         match 'receive' => 'messages#receive', via: [:get, :post]
