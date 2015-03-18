@@ -1,0 +1,9 @@
+//= require jquery
+//= require bootstrap-sprockets
+//= require bootstrap-material-design
+//= require angular
+//= require angular-animate
+//= require angular-resource
+//= require_directory ./shared
+//= require_directory ./mobile/apps
+//= require_directory ./mobile/controllers

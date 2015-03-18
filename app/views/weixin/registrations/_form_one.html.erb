@@ -11,7 +11,7 @@
   </div>
   <p class='note'>默认头像真的好丑，请相信我</p>
 </div>
-<%= form_for(@registration, url: weixin_registration_path, remote: true, html: { class: "form-horizontal" }) do |f| %>
+<%= form_for(@registration, url: weixin_registrations_path, remote: true, html: { class: "form-horizontal" }) do |f| %>
     <fieldset>
       <%= hidden_field_tag open_id: params[:open_id] %>
       <div class="form-group">

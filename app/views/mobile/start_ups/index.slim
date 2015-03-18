@@ -1,0 +1,14 @@
+div(ng-controller="StartUpsCtrl" class="mobile-start-ups")
+
+  .btn.btn-success.btn-fab.btn-raised.mdi-content-add.extend-button
+
+  .start-ups-list-panel
+    .alert.alert-warning
+      p 让漂泊在外的武汉朋友看到, 我们在努力。优秀创业团队接龙， 推荐你身边的优秀团队。
+    .well(ng-repeat="start_up in start_ups")
+      .row
+        .col-xs-3
+          img(ng-src="{{start_up.logo_url}}" style="height: 40px; border-radius: 50%"  )
+        .col-xs-9
+          p(ng-bind="start_up.name")
+          p(ng-bind="start_up.desc | limitTo: 30")

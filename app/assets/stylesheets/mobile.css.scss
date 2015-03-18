@@ -1,0 +1,12 @@
+/*
+*= require_tree ./mobile
+*= require_tree ./shared
+*= require_self
+*= require bootstrap-material-design
+*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+*:focus {
+  outline: 0;
+}

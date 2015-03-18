@@ -3,13 +3,11 @@
 <head>
   <title>光谷 ＋ 创新</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag 'web', media: 'all' %>
+  <%= stylesheet_link_tag 'mobile', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div class="container weixin">
-    <%= yield %>
-  </div>
-  <%= javascript_include_tag 'weixin' %>
+<body ng-app = "StartUps">
+  <%= yield %>
+  <%= javascript_include_tag 'mobile' %>
 </body>
 </html>

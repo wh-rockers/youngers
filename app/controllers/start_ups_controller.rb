@@ -3,7 +3,10 @@ class StartUpsController < ApplicationController
 
   def index
     @start_ups = StartUp.all
-    render layout: 'big-banner'
+    respond_to do |format|
+      format.html { render layout: 'big-banner' }
+      format.json
+    end
   end
 
   def show

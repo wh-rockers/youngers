@@ -1,0 +1,13 @@
+.mobile-start-ups {
+  background-color: #fafafa;
+  .extend-button {
+    opacity: .3;
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    z-index: 999;
+    &:active {
+      opacity: .8;
+    }
+  }
+}

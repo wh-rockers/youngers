@@ -4,15 +4,15 @@ class Weixin::SessionsController < Devise::SessionsController
   
   def new
     @open_id = params[:open_id] || get_open_id_via_code
-    # weixin_account = WeixinAccount.find_by(open_id: @open_id)
-    # user = weixin_account.try(:user)
-    super
-    # if user.present?
-      # sign_in user
-      # redirect_to weixin_users_path and return
-    # else
-      # super
-    # end
+    weixin_account = WeixinAccount.find_by(open_id: @open_id)
+    user = weixin_account.try(:user)
+    if user.present?
+      sign_in user
+      redirect_to weixin_users_path and return
+    else
+      self.resource = resource_class.new(sign_in_params)
+      clean_up_passwords(resource)
+    end
   end
 
   def create

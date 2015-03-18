@@ -1,0 +1,1 @@
+json.partial! "start_ups/start_up", collection: @start_ups, as: :start_up

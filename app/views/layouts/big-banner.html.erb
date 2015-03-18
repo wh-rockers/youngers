@@ -3,8 +3,7 @@
 <head>
   <title>光谷客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="google-site-verification" content="IIoWoi-yl7LmIqNyCX6qHrVzekBawPk9i5yBWo2oeG8" />
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'web', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,6 +13,6 @@
     <%= yield %>
   </div>
   <%= render 'layouts/copyright' %>
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'web' %>
 </body>
 </html>

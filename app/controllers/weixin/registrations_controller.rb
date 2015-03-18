@@ -6,9 +6,11 @@ class Weixin::RegistrationsController < Devise::RegistrationsController
 
   def create
     return @invitation_code_error = true unless InvitationCode.find_by(code: params[:invitation_code])
+    weixin_account = WeixinAccount.find_by_open_id(params[:open_id])
     @registration = User.new(permit_params)
     if @registration.save
       sign_in @registration
+      weixin_account.update_attributes(user_id: @registration.id)
       invitation_code = InvitationCode.find_by_code(params[:invitation_code])
       invitation_code.used_by_ids += [@registration.id]
       invitation_code.save

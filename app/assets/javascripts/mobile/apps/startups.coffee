@@ -1,0 +1,1 @@
+@startUps = angular.module('StartUps', [])

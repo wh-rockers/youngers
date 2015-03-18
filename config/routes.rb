@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :mobile do
+    resources :start_ups
+  end
+
   namespace :weixin do
     devise_scope :user do
       resources :sessions
