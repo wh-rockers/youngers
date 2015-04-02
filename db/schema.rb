@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225150605) do
+ActiveRecord::Schema.define(version: 20150326010757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20150225150605) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "investments", force: true do |t|
+    t.string   "investors",    default: [], array: true
+    t.string   "level"
+    t.integer  "amount"
+    t.integer  "start_ups_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "investments", ["start_ups_id"], name: "index_investments_on_start_ups_id", using: :btree
 
   create_table "invitation_codes", force: true do |t|
     t.integer  "user_id"
@@ -89,12 +100,14 @@ ActiveRecord::Schema.define(version: 20150225150605) do
     t.string   "logo_url"
     t.string   "name"
     t.integer  "likes_count", default: 0
-    t.string   "desc"
+    t.text     "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "link"
     t.integer  "user_id"
     t.integer  "like_ids",    default: [], array: true
+    t.string   "weibo"
+    t.string   "from_url"
   end
 
   create_table "topic_comments", force: true do |t|

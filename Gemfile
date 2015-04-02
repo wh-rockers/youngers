@@ -29,6 +29,7 @@ gem 'slim-rails'
 gem 'momentjs-rails'
 gem 'thin'
 gem 'exception_notification'
+gem 'nokogiri'
 
 group :development do
   gem 'better_errors'

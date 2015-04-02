@@ -1,1 +1,0 @@
-json.(start_up, :name, :logo_url, :link, :likes_count, :desc)

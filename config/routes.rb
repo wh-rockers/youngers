@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   root 'users#index'
   resources :start_ups do 
     put :like, on: :member
+    put :up, on: :member
   end
 
   get '/about' => 'static#about'

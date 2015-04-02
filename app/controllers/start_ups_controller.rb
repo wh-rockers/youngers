@@ -1,12 +1,24 @@
 class StartUpsController < ApplicationController
-  before_action :set_start_up, only: [:show, :edit, :update, :destroy, :like]
+  before_action :set_start_up, only: [:show, :edit, :update, :destroy, :like, :up]
+  skip_before_action :authenticate_user!, only: [:up, :create]
 
   def index
-    @start_ups = StartUp.all
+    page = params[:page].try(:to_i) || 0
+    @per_page = params[:per_page].try(:to_i) || 500
+    @start_ups = StartUp.order(updated_at: :desc).offset(@per_page*page).limit(@per_page)
     respond_to do |format|
       format.html { render layout: 'big-banner' }
       format.json
     end
+  end
+
+  def up
+    case params[:direct]
+    when 'up' then @start_up.likes_count += 1
+    when 'down' then @start_up.likes_count -=1
+    end
+    @start_up.save
+    render nothing: true, status: 200
   end
 
   def show
@@ -32,8 +44,11 @@ class StartUpsController < ApplicationController
 
   def create
     @start_up = StartUp.new(start_up_params)
-    @start_up.save
-    respond_with(@start_up)
+    if @start_up.save
+      render "show.json"
+    else
+      render nothing: true
+    end
   end
 
   def update
@@ -52,6 +67,6 @@ class StartUpsController < ApplicationController
     end
 
     def start_up_params
-      params.require(:start_up).permit(:logo_url, :name, :likes_count, :desc)
+      params.require(:start_up).permit(:logo_url, :name, :likes_count, :desc, :link)
     end
 end

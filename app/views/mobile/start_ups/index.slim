@@ -1,14 +1,63 @@
 div(ng-controller="StartUpsCtrl" class="mobile-start-ups")
 
-  .btn.btn-success.btn-fab.btn-raised.mdi-content-add.extend-button
-
-  .start-ups-list-panel
-    .alert.alert-warning
-      p 让漂泊在外的武汉朋友看到, 我们在努力。优秀创业团队接龙， 推荐你身边的优秀团队。
-    .well(ng-repeat="start_up in start_ups")
+  .start-ups-list-panel(infinite-scroll='nextPage()' infinite-scroll-disabled='busy' infinite-scroll-distance='1')
+    .btn.btn-default.btn-fab.btn-raised.mdi-navigation-expand-less.bottom-icon-top.opacity-action
+    .btn.btn-success.btn-fab.btn-raised.mdi-content-add.extend-button.bottom-icon-down.opacity-action
+    .top
+      p 让漂泊在外的武汉朋友看到, 我们在努力。创业团队接龙， 推荐你身边的优秀团队。
+      .number 1
+    .well.start-up(ng-repeat="start_up in items" ng-controller="StartUpCtrl")
       .row
-        .col-xs-3
-          img(ng-src="{{start_up.logo_url}}" style="height: 40px; border-radius: 50%"  )
-        .col-xs-9
-          p(ng-bind="start_up.name")
-          p(ng-bind="start_up.desc | limitTo: 30")
+        .col-xs-2(style="padding: 0;")
+          .icon(ng-click="up()" ng-class="{'active': up_state}")
+            i.mdi-navigation-arrow-drop-up
+            p(ng-bind="start_up.likes_count")
+        .col-xs-10
+          p.title
+            a(href="{{start_up.link}}")
+              span(ng-bind="start_up.name" style="font-size: 16px;")
+              i.mdi-content-link(ng-show="start_up.link.length > 0")
+            img(ng-src="{{start_up.logo_url.length > 0 ? start_up.logo_url : ''}}" style="border-radius: 100%" ng-show="start_up.logo_url.length > 0")
+          p.desc(ng-bind="start_up.desc | limitTo: 114")
+    .well(ng-show="busy" style="padding-bottom: 40px; padding-left: 43%;")
+      = render "layouts/loading"
+  .new_start_up.closed#create_new_start_up
+    div.et-wrapper.new-start-up
+      .btn.btn-danger.btn-fab.btn-raised.mdi-content-clear.back-button
+      .bottom
+        .actions
+          .btn.btn-danger.btn-fab.btn-raised.mdi-navigation-expand-more.bottom-icon-right.et-rotate(et-in="rotateUnfoldBottom" et-out="moveToTopFade" style="z-index: 999;")
+        p.copyright 
+          span Made with 
+          i.mdi-action-favorite.mdi-material-red 
+          span by zilongji@gmail.com in Wuhan
+
+      .et-page.page.introduction
+        p 只要团队满足：
+        ul
+          li 成立在武汉
+          li 致力于用创新产品改变人们点滴生活
+          li 产品已上线，或已推出市场
+
+      .et-page.page
+        .form-group
+          input.form-control.floating-label#focusedInput(placeholder="项目名称" ng-model="newStartUp.name")
+      .et-page.page
+        .form-group
+          textarea.form-control.floating-label#focusedInput(placeholder="项目介绍" ng-model="newStartUp.desc" style="height: 120px;")
+      .et-page.page
+        .form-group
+          textarea.form-control.floating-label#focusedInput(placeholder="项目主页, 或者微博网址" ng-model="newStartUp.link")
+      .et-page.page
+        .upload_logo
+          .logo-section
+            #logo
+              i.mdi-file-cloud-queue
+          .btn.btn-success.btn-raised#upload-project-button 上传 Logo
+          .loading-section
+            = render "layouts/loading"
+          input(type="hidden" name="newStartUp.logo_url" ng-model="newStartUp.logo_url" ng-update-hidden)
+        .error 请填写完整项目信息
+        .btn.btn-danger.btn-raised(style="width: 60%; margin-left: 20%; padding: 15px;" ng-click="submitStartUp()") 确认提交
+
+

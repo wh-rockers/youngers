@@ -1,9 +1,13 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require bootstrap-material-design
+//= require plupload.min
+//= require qiniu.min
 //= require angular
 //= require angular-animate
 //= require angular-resource
+//= require angular-infinite-scroll.min
+//= require lodash.min
+//= require elementTransitions.min
 //= require_directory ./shared
-//= require_directory ./mobile/apps
-//= require_directory ./mobile/controllers
+//= require_tree ./mobile

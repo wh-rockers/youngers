@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def uptoken
-    put_policy = Qiniu::Auth::PutPolicy.new('startups')
+    put_policy = Qiniu::Auth::PutPolicy.new("#{ENV['QINIU_BUCKET']}")
     token = Qiniu::Auth.generate_uptoken(put_policy)
     render json: { uptoken: token }
   end

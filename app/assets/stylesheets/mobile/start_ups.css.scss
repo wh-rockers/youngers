@@ -1,13 +1,198 @@
+.mdi-material-red {
+  color: rgb(244, 67, 54);
+}
 .mobile-start-ups {
   background-color: #fafafa;
-  .extend-button {
-    opacity: .3;
-    position: fixed;
-    bottom: 10px;
-    left: 20px;
-    z-index: 999;
+  overflow-y: hidden;
+  .opacity-action {
+    opacity: .6;
     &:active {
       opacity: .8;
+    }
+  }
+  .bottom-icon-top {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1
+  }
+  .bottom-icon-down {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 1;
+  }
+  .start-ups-list-panel {
+    overflow-y: hidden;
+    .top {
+      .number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 60px;
+        width: 60px;
+        background-color: white;
+        color: #FF5722;
+        font-size: 36px;
+        padding-top: 5px;
+        text-align: center;
+      }
+      p {
+        font-size: 12px;
+        width: 100%;
+        background-color: #FF5722;
+        padding: 10px 20px 10px 70px;
+        color: white;
+        height: 60px;
+        margin-bottom: 10px;
+      }
+    }
+    .start-up {
+      .icon {
+        &.active {
+          color: #DA552F;
+        }
+        background-color: #eee;
+        border-radius: 4px;
+        width: 36px;
+        text-align: center;
+        float: right;
+        margin-top: 10px;
+        i { font-size: 36px; }
+        p {
+          margin-top: -10px;
+          margin-bottom: 5px;
+        }
+      }
+      .title {
+        margin-bottom: 10px;
+        a {
+          text-decoration: none;
+          span {
+            font-size: 16px;
+            line-height: 30px;
+            color: black;
+          }
+          i {
+            font-size: 20px; 
+            vertical-align: middle;
+            color: #da552f;
+            opacity: .8;
+          }
+        }
+        img {
+          float: right;
+        }
+      }
+      .desc {
+        font-size: 12px;
+      }
+    }
+  }
+  .new_start_up {
+    position: fixed;
+    background-color: #EF5624;
+    bottom: 0;
+    transition: all 1s ease;
+    -webkit-transitiion: all 1s ease;
+    height: 100%;
+    width: 100%;
+    color: white;
+    z-index: 100;
+    &.closed {
+      transform: translateX(100%) scale(.6) !important;
+      -webkit-transform: translateX(100%) scale(.6) !important;
+      transform-origin: top right;
+      -webkit-transform-origin: top right;
+      transition: all .4s ease;
+      -webkit-transition: all .4s ease;
+    }
+    .new-start-up {
+      height: 100%;
+      .et-page-current {
+        z-index: 200;
+      }
+      .back-button {
+        z-index: 999;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
+      .bottom {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        height: 90px;
+        z-index: 999;
+        .actions {
+          height: 65px;
+          .bottom-icon-left, .bottom-icon-right {
+            float: right;
+            margin-right: 10px;
+          }
+        }
+        .copyright {
+          font-size: 12px;
+          text-align: center;
+          opacity: .5;
+          i { background-color: white; }
+          span {
+            font-family: cursive;
+            margin: 0 10px;
+          }
+        }
+      }
+      .page {
+        padding-top: 30%;
+        .form-group {
+          input, textarea {
+            color: white;
+          }
+          width: 90%;
+          margin-left: 5%;
+        }
+        &.introduction {
+          p {
+            margin-left: 10px;
+          }
+          ul {
+            font-size: 12px;
+          }
+        }
+        .error {
+          visibility: hidden;
+          margin-left: 20%
+        }
+        .upload_logo {
+          margin-bottom: 100px;
+          .logo-section {
+            display: inline-block;
+            width: 80px;
+            margin-right: 20px;
+            margin-left: 16%;
+            #logo {
+              width: 80px;
+              height: 80px;
+              background-color: rgb(128, 128, 128);
+              border-radius: 100%;
+              text-align: center;
+              padding-top: 22px;
+              i {
+                font-size: 30px;
+              }
+            }
+          }
+          #upload-project-button {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 30px;
+          }
+          .loading-section {
+            display: none;
+            margin-left: 50px;
+          }
+        }
+      }
     }
   }
 }
