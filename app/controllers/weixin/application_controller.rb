@@ -1,4 +1,4 @@
-require 'CGI'
+require 'cgi'
 require 'open-uri'
 class Weixin::ApplicationController < ApplicationController
   include WeixinConcerns
