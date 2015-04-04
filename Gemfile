@@ -27,7 +27,7 @@ gem 'rest-client'
 # gem 'faye-rails', git: 'https://github.com/apprentice1988/faye-rails.git'
 gem 'slim-rails'
 gem 'momentjs-rails'
-gem 'thin'
+#gem 'thin'
 gem 'exception_notification'
 gem 'nokogiri'
 
