@@ -14,4 +14,4 @@ test:
   database: startups_test
 production:
   <<: *default
-  database: ggk_production
+  database: startups_dev
