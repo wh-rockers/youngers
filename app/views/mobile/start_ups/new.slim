@@ -1,30 +1,28 @@
 div.container.mobile-new-start-up#create_new_start_up(ng-controller="NewStartUpsCtrl")
-  .well.bs-component
+  .well
     form.form-horizontal
-      fieldset
-        legend.mdi-material-red 推荐优秀创业团队
-        div.form-group
-          label.col-lg-2.control-label 项目名称
-          .col-lg-10
-            input.form-control(type="text" ng-model="NewStartUp.name" placeholder="Wh Rockers")
-        div.form-group
-          label.col-lg-2.control-label 项目介绍
-          .col-lg-10
-            textarea.form-control(ng-model="NewStartUp.desc")
-        .upload_logo
-          b 项目LOGO
-          .logo-section
-            #logo
-              i.mdi-file-cloud-queue
-          .btn.btn-default.btn-raised#upload-project-button 上传Logo
-          .loading-section
-            = render "layouts/loading"
-          input(type="hidden" ng-model="newStartUp.logo_url" name="newStartUp.logo_url" ng-update-hidden)
-        div.form-group
-          label.col-lg-2.control-label 项目地址
-          .col-lg-10
-            input.form-control(type="text" ng-model="NewStartUp.link" placeholder="项目主页或者微博网址")
-        .submit
-          .error 请填写完整项目信息
-          .btn.btn-primary.btn-raised(ng-click="submitStartUp()") 确认提交
+      legend.mdi-material-red 推荐优秀创业团队
+      div.form-group
+        label.col-lg-2.control-label 项目名称
+        .col-lg-10
+          input.form-control(type="text" ng-model="newStartUp.name" placeholder="Wh Rockers")
+      div.form-group
+        label.col-lg-2.control-label 项目介绍
+        .col-lg-10
+          textarea.form-control(ng-model="newStartUp.desc")
+      .upload_logo
+        b 项目LOGO
+        .logo-section
+          #logo
+            i.mdi-file-cloud-queue
+        .btn.btn-default.btn-raised#upload-project-button 上传Logo
+        .loading-section
+          = render "layouts/loading"
+      div.form-group
+        label.col-lg-2.control-label 项目地址
+        .col-lg-10
+          input.form-control(type="text" ng-model="newStartUp.link" placeholder="项目主页或者微博网址")
+      .submit
+        .error 请填写完整项目信息
+        .btn.btn-primary.btn-raised(ng-click="submitStartUp()") 确认提交
 

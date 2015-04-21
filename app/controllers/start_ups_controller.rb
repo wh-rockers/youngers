@@ -44,11 +44,8 @@ class StartUpsController < ApplicationController
 
   def create
     @start_up = StartUp.new(start_up_params)
-    if @start_up.save
-      render "show.json"
-    else
-      render nothing: true
-    end
+    @start_up.save
+    render "show.json"
   end
 
   def update

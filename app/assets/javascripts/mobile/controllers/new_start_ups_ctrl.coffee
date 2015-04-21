@@ -2,6 +2,7 @@ startUps.controller "NewStartUpsCtrl", [
   '$scope'
   '$http'
   ($scope, $http) ->
+    $scope.newStartUp = {}
     uploadProjectLogo = ->
       if $("#upload-project-button").length > 0
         uploader = Qiniu.uploader(
@@ -44,7 +45,7 @@ startUps.controller "NewStartUpsCtrl", [
               return
               
             Error: (up, err, errTip) ->      
-            #上传出错时,处理相关的事情
+              console.log err
       
             UploadComplete: ->                
             #队列文件处理完毕后,处理相关的事情        
@@ -52,4 +53,17 @@ startUps.controller "NewStartUpsCtrl", [
             Key: (up, file) ->
           )
     uploadProjectLogo()
+
+    $scope.submitStartUp = ->
+      $(".error").css("visibility", "hide")
+      if !!$scope.newStartUp.name && !!$scope.newStartUp.desc && !!$scope.newStartUp.logo_url
+        params = { start_up: _.pick($scope.newStartUp, "name", "desc", "link", "logo_url") }
+        $http.post("/start_ups.json", params)
+          .success (data)->
+            window.location.href= "/mobile/start_ups"
+          .error (err) ->
+            console.log err
+      else
+        $(".error").css("visibility", "visible")
+        return
 ]
