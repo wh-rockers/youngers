@@ -51,6 +51,5 @@ startUps.controller "NewStartUpsCtrl", [
       
             Key: (up, file) ->
           )
-  uploadProjectLogo()
-
+    uploadProjectLogo()
 ]
