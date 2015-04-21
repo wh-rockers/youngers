@@ -9,9 +9,9 @@ startUps.controller "NewStartUpsCtrl", [
           runtimes: "html5,flash,html4"
           browse_button: "upload-project-button" #上传选择的点选按钮，**必需**
           uptoken_url: "/users/uptoken"
-          domain: "http://startups-dev.qiniudn.com"
+          domain: "http://startups.qiniudn.com"
           container: "create_new_start_up"
-          max_file_size: "2mb"
+          max_file_size: "4mb"
           flash_swf_url: "js/plupload/Moxie.swf"
           max_retries: 3
           dragdrop: true
@@ -45,7 +45,9 @@ startUps.controller "NewStartUpsCtrl", [
               return
               
             Error: (up, err, errTip) ->      
-              console.log err
+              if err.message == "File size error."
+                $(".size-error").css("visibility", 'visible')
+                return
       
             UploadComplete: ->                
             #队列文件处理完毕后,处理相关的事情        

@@ -12,7 +12,7 @@ require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 
 set :domain, '120.27.44.131'
 set :deploy_to, '/home/deploy/www/ggk'
-set :repository, 'git@github.com:apprentice1988/youngers.git'
+set :repository, "git@github.com:wh-rockers/youngers.git"
 set :branch, ENV['branch'] || 'master'
 set :rails_env, 'production'
 set :user, 'deploy'

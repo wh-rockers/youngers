@@ -42,12 +42,19 @@
       display: none;
       margin-left: 50px;
     }
+    .size-error {
+      color: rgb(244, 67, 54);
+      visibility: hidden;
+      font-size: 12px;
+      margin-left: 6%;
+    }
   }
   .submit {
     text-align: center;
     .error {
       visibility: hidden;
-      color: rgb(244, 67, 54)
+      color: rgb(244, 67, 54);
+      font-size: 12px;
     }
   }
 }
