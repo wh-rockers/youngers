@@ -11,3 +11,18 @@
 *:focus {
   outline: 0;
 }
+
+.modal.fade:not(.in).bottom .modal-dialog {
+  -webkit-transform: translate3d(0, 125%, 0);
+  transform: translate3d(0, 125%, 0);
+}
+
+.modal.fade.bottom {
+  bottom: -10px;
+  top: auto;
+}
+
+.modal-backdrop.in {
+  background-color: white;
+  opacity: .7;
+}

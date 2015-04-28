@@ -27,6 +27,14 @@ startUps.controller "StartUpsCtrl", [
         $('body').animate {scrollTop: 0}, 600
   
     bottomToTop()
+
+    modalHint = ->
+      $(".modal-hint").on 'click', ->
+        $(".modal").addClass('bottom')
+        $(".modal").modal('show')
+        $(".modal-backdrop").show()
+
+    modalHint()
   
     
 ]

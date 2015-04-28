@@ -4,8 +4,6 @@
 //= require plupload.min
 //= require qiniu.min
 //= require angular
-//= require angular-animate
-//= require angular-resource
 //= require angular-infinite-scroll.min
 //= require lodash.min
 //= require elementTransitions.min

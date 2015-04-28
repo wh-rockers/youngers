@@ -1,4 +1,5 @@
 class Weixin::UsersController < Weixin::ApplicationController
+  before_action :sign_in_via_open_id, only: [:index]
   def index
     @users = User.registration_finished
     if params[:code].present?

@@ -1,0 +1,15 @@
+.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+        h4.modal-title 欢迎使用推荐功能
+      .modal-body(style="padding-bottom: 20px;")
+        p(style="color: #999;") 为了信息的准确性， 推荐功能需要用户登录。
+        .row
+          .col-xs-6(style="border-right: 2px solid #ccc;text-align: center;")
+            p 没有账户?
+            a.btn.btn-warning.btn-raised(href="/mobile/sign_up_hint.html") 注册
+          .col-xs-6(style="text-align: center;")
+            p 已有账户?
+            .btn.btn-primary.btn-raised 登录

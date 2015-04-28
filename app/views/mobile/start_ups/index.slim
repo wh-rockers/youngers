@@ -1,7 +1,10 @@
 div(ng-controller="StartUpsCtrl" class="mobile-start-ups")
   .start-ups-list-panel(infinite-scroll='nextPage()' infinite-scroll-disabled='busy' infinite-scroll-distance='1')
     .btn.btn-default.btn-fab.btn-raised.mdi-navigation-expand-less.bottom-icon-top.opacity-action
-    a.btn.btn-success.btn-fab.btn-raised.mdi-content-add.extend-button.bottom-icon-down.opacity-action(href="/mobile/start_ups/new")
+    - if user_signed_in?
+      a.btn.btn-success.btn-fab.btn-raised.mdi-content-add.extend-button.bottom-icon-down.opacity-action(href="/mobile/start_ups/new")
+    - else
+      .btn.btn-success.btn-fab.btn-raised.mdi-content-add.extend-button.bottom-icon-down.opacity-action.modal-hint
     .top
       p 让漂泊在外的武汉朋友看到, 我们在努力。创业团队接龙， 推荐你身边的优秀团队。
       .number 1
@@ -20,6 +23,7 @@ div(ng-controller="StartUpsCtrl" class="mobile-start-ups")
           p.desc(ng-bind="start_up.desc | limitTo: 114")
     .well(ng-show="busy" style="padding-bottom: 40px; padding-left: 43%;")
       = render "layouts/loading"
+  = render "shared/register_hint_modal"
   
 
 

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   namespace :mobile do
     resources :start_ups
+    get "sign_up_hint" => "static#sign_up_hint"
   end
 
   namespace :weixin do
