@@ -6,7 +6,7 @@
   <%= stylesheet_link_tag 'mobile', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-app = "StartUps">
+<body ng-app = "<%= yield(:app) %>">
   <%= yield %>
   <%= javascript_include_tag 'mobile' %>
 </body>

@@ -1,0 +1,19 @@
+- provide(:app, "User")
+.mobile-registration(ng-controller="mobileRegistrationCtrl")
+  .et-wrapper
+    button.btn.btn-primary.btn-raised.et-rotate(et-in="rotateSlideIn" et-out="rotateSlideOut" style="visibility: hidden;")  Next
+    .et-page
+      .well
+
+        form.form-horizontal
+          fieldset
+            .form-group
+              label.col-lg-2.control-label(for="inputUsername") 用户名
+              .col-lg-10
+                input.form-control(type="text" ng-model="newUser.username" placeholder="例如: walawala")
+            .form-group
+              label.col-lg-2.control-label(for="inputEmail") 邮箱
+              .col-lg-10
+                input.form-control(type="email" ng-model="newUser.email")
+    .et-page
+      h2 Page 2

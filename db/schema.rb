@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326010757) do
+ActiveRecord::Schema.define(version: 20150430002315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,6 +185,13 @@ ActiveRecord::Schema.define(version: 20150326010757) do
     t.string   "open_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nickname"
+    t.integer  "sex"
+    t.string   "language"
+    t.string   "city"
+    t.string   "province"
+    t.string   "country"
+    t.string   "headimgurl"
   end
 
   add_index "weixin_accounts", ["user_id"], name: "index_weixin_accounts_on_user_id", using: :btree

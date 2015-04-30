@@ -1,7 +1,0 @@
-<% if @invitation_code_error %>
-  $(".invitation_code_error").show();
-<% else %>
-  $(".invitation_code_error").hide()
-  $(".step-2").html("<%= j render 'form_two' %>");
-  $('.carousel').carousel('next', {interval: false});
-<% end %>

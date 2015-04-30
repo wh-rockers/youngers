@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   namespace :mobile do
     resources :start_ups
+    resources :registrations
     get "sign_up_hint" => "static#sign_up_hint"
   end
 
   namespace :weixin do
     devise_scope :user do
       resources :sessions
-      resources :registrations
     end
     resources :messages, only: [:index] do 
       collection do 

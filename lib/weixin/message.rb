@@ -21,6 +21,7 @@ class Weixin::Message
 
   def response_subscribe
     account = WeixinAccount.find_or_create_by(open_id: from_user_name)
+    account.fill_basic_info
     response_text_xml('谢谢关注')
   end
 
