@@ -1,1 +1,0 @@
-@user = angular.module('User', [])

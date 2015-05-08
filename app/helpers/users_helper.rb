@@ -1,8 +1,16 @@
 module UsersHelper
 	def random_avatar
-		num = rand(20) + 1
-		"http://startups.qiniudn.com/#{num}.png"
+		if @weixin_account
+      @weixin_account.headimgurl
+    else
+      num = rand(20) + 1
+		  "http://startups.qiniudn.com/#{num}.png?imageView2/1/w/80/h/80"
+    end
 	end
+
+  def avatar_url_in_weixin_registration
+    random_avatar.sub("?imageView2/1/w/80/h/80", '')
+  end
 
   def invitation_link(one_user, ao_user)
     if one_user && one_user != ao_user

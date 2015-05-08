@@ -4,12 +4,9 @@
 //= require jquery_ujs
 //= require plupload.min
 //= require qiniu.min
-//= require social-share-button
-//= require datepicker/picker
-//= require datepicker/picker.date
-//= require datepicker/picker.time
 //= require moment
+//= require elementTransitions.min
 //= require_directory ./shared
-//= require_directory ./web
+//= require_directory ./weixin
 
 $("abbr.timeago").timeago();

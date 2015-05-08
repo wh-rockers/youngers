@@ -1,3 +1,71 @@
-.weixin_regis_tabs {
-  margin-bottom: 20px;
+.navbar {
+  .brand {
+    float: left;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+    line-height: 50px;
+  }
+  .out {
+    float: right;
+    margin-right: 20px;
+    line-height: 50px;
+    a {
+      font-size: 14px;
+      color: rgb(255, 255, 255);
+    }
+  }
+}
+.registration-table {
+  height: -webkit-calc(100% - 50px);
+  height: -moz-calc(100% - 50px);
+  height: calc(100% - 50px);
+  margin-left: -15px;
+  margin-right: -15px;
+  .next {
+    visibility: hidden;
+  }
+  .well {
+    height: 100%;
+    padding-top: 40px;
+    #registration-user-avatar {
+      .actions {
+        text-align: center;
+        .avatar_section {
+          height: 100px;
+          width: 100px;
+          display: inline-block;
+          margin-right: 20px;
+          .avatar-pic {
+            border-radius: 50%;
+            border: 1px solid #eee;
+            width: 80px;
+            height: 80px;
+          }
+        }
+        #avatar_upload_button {
+          display: inline-block;
+          padding: 10px 20px;
+        }
+        .loading-avatar {
+          display: none;
+          width: 50px;
+        }
+      }
+      .note {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 16px;
+        color: red;
+      }
+    }
+  }
+  .explain {
+    font-size: 12px;
+    margin: 5px auto 10px auto;
+    color: #aaa;
+  }
+  form {
+    font-size: 14px;
+  }
 }
